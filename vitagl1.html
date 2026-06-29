@@ -439,7 +439,7 @@ h1 em {
   align-items: start;
 }
 .card-img {
-  width: 120px; height: 120px;
+  width: 120px; height: 140px;
   border-radius: 12px;
   background: #fff;
   overflow: hidden;
@@ -447,7 +447,10 @@ h1 em {
   flex-shrink: 0;
 }
 .card-img img {
-  width: 100%; height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
   object-fit: contain;
   display: block;
 }
@@ -878,14 +881,9 @@ footer {
   .btn-green, .btn-cta { padding: 14px 12px; gap: 6px; font-size: 13px; }
 
   .stats-strip { grid-template-columns: repeat(2, 1fr); }
-  .card-overview { grid-template-columns: 1fr; gap: 0; padding: 0; }
-  .card-img {
-    width: 100%;
-    height: 200px;
-    border-radius: 0;
-    border-bottom: 1px solid var(--border);
-  }
-  .card-meta { padding: 20px 16px; }
+  .card-overview { grid-template-columns: 110px 1fr; gap: 14px; padding: 16px; align-items: center; }
+  .card-img { width: 100%; height: 130px; border-radius: 10px; }
+  .card-meta { padding: 0; }
   .price-row { gap: 6px; }
   .price-note { font-size: 12px; }
   .pc-table { margin: 0 16px 16px; max-width: calc(100% - 32px); }
@@ -1085,7 +1083,9 @@ footer {
       <span class="badge">TOP PICK</span>
     </div>
     <div class="card-overview">
-      <div class="card-img"><img src="images/vitaglp.png" alt="VitaGLP" width="120" height="120" loading="lazy"></div>
+      <div class="card-img"><img src="images/vitaglp.png" alt="VitaGLP" width="120" height="140" loading="lazy"></div>
+      <div class="card-meta">
+        <div class="card-brand">VitaGLP</div>
         <div class="score-row">
           <span class="score-big">9,4</span>
           <span class="score-out">/10</span>
@@ -1138,7 +1138,7 @@ footer {
   <div class="card">
     <div class="card-header-runner">#2 &nbsp;·&nbsp; Zweiter Platz</div>
     <div class="card-overview">
-      <div class="card-img"><img src="images/coreglp.png" alt="CoreGLP" width="120" height="120" loading="lazy"></div>
+      <div class="card-img"><img src="images/coreglp.png" alt="CoreGLP" width="120" height="140" loading="lazy"></div>
       <div class="card-meta">
         <div class="card-brand">CoreGLP</div>
         <div class="score-row">
@@ -1178,7 +1178,7 @@ footer {
   <div class="card">
     <div class="card-header-runner">#3 &nbsp;·&nbsp; Dritter Platz</div>
     <div class="card-overview">
-      <div class="card-img"><img src="images/wego6.png" alt="wego6" width="120" height="120" loading="lazy"></div>
+      <div class="card-img"><img src="images/wego6.png" alt="wego6" width="120" height="140" loading="lazy"></div>
       <div class="card-meta">
         <div class="card-brand">wego6</div>
         <div class="score-row">
