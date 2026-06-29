@@ -169,6 +169,12 @@ h1 em {
   color: #fff; font-weight: 700; font-size: 14px;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
+  overflow: hidden;
+}
+.avatar img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .byline-name { font-size: 14px; font-weight: 700; color: #111; }
 .byline-meta {
@@ -436,18 +442,15 @@ h1 em {
   width: 130px; height: 160px;
   border-radius: 10px;
   background: #f0f4ff;
-  border: 2px dashed #9ab0d9;
+  border: 1px solid var(--border);
   display: flex; align-items: center; justify-content: center;
-  flex-direction: column; gap: 6px;
   flex-shrink: 0;
-  text-align: center;
+  overflow: hidden;
 }
-.card-img .img-icon { font-size: 32px; }
-.card-img .img-label {
-  font-size: 10px; font-weight: 600;
-  color: #7a96c4; line-height: 1.3;
-  padding: 0 8px;
-  text-transform: uppercase; letter-spacing: 0.05em;
+.card-img img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  display: block;
 }
 .card-meta {}
 .card-brand {
@@ -928,7 +931,7 @@ footer {
   <p id="page-sub" class="lead">Wir haben außerdem einen Sonderrabatt und eine 30-tägige Risikofreiheit für unsere Leser ausgehandelt. Lesen Sie bis zum Ende.</p>
 
   <div class="byline">
-    <div class="avatar">AW</div>
+    <div class="avatar"><img src="images/anna-weber.webp" alt="Anna Weber" width="40" height="40" loading="lazy"></div>
     <div>
       <div class="byline-name">Anna Weber</div>
       <div class="byline-meta">Leitende Redakteurin, Besser Produktvergleich · Geprüft &amp; Verglichen · 7 Min Lesezeit</div>
@@ -1077,9 +1080,7 @@ footer {
       <span class="badge">TOP PICK</span>
     </div>
     <div class="card-overview">
-      <div class="card-img"><span class="img-icon">📷</span><span class="img-label">Produktbild<br>hier einfügen</span></div>
-      <div class="card-meta">
-        <div class="card-brand">VitaGLP</div>
+      <div class="card-img"><img src="images/vitaglp.png" alt="VitaGLP" width="130" height="160" loading="lazy"></div>
         <div class="score-row">
           <span class="score-big">9,4</span>
           <span class="score-out">/10</span>
@@ -1132,7 +1133,7 @@ footer {
   <div class="card">
     <div class="card-header-runner">#2 &nbsp;·&nbsp; Zweiter Platz</div>
     <div class="card-overview">
-      <div class="card-img"><span class="img-icon">📷</span><span class="img-label">Produktbild<br>hier einfügen</span></div>
+      <div class="card-img"><img src="images/coreglp.png" alt="CoreGLP" width="130" height="160" loading="lazy"></div>
       <div class="card-meta">
         <div class="card-brand">CoreGLP</div>
         <div class="score-row">
@@ -1172,7 +1173,7 @@ footer {
   <div class="card">
     <div class="card-header-runner">#3 &nbsp;·&nbsp; Dritter Platz</div>
     <div class="card-overview">
-      <div class="card-img"><span class="img-icon">📷</span><span class="img-label">Produktbild<br>hier einfügen</span></div>
+      <div class="card-img"><img src="images/wego6.png" alt="wego6" width="130" height="160" loading="lazy"></div>
       <div class="card-meta">
         <div class="card-brand">wego6</div>
         <div class="score-row">
@@ -1287,7 +1288,7 @@ footer {
       <p>Die drei Produkte, die Sie hier sehen, haben jeden Prüfpunkt bestanden. Das bedeutet nicht, dass sie perfekt sind. Es bedeutet, dass sie die einzigen sind, bei denen wir sagen können: Wenn Sie ein GLP-1-Supplement kaufen möchten, sind das die Optionen, die wir nach unserem Test für vertretbar halten.</p>
       <p>Die Frage, die wir bei jedem Produkt gestellt haben: <em>Würden wir das jemandem empfehlen, dem wir vertrauen?</em> Bei VitaGLP lautet die Antwort klar ja, wegen der Wirkstoffqualität, der Transparenz, der Garantie und des Preises. CoreGLP und wego6 sind legitime Produkte, die unseren Mindeststandard erfüllt haben, sie haben in mehr Kategorien schlechter abgeschnitten und sind deshalb nicht unsere erste Empfehlung.</p>
       <div class="editor-sig">
-        <div class="avatar">AW</div>
+        <div class="avatar"><img src="images/anna-weber.webp" alt="Anna Weber" width="40" height="40" loading="lazy"></div>
         <div>
           <div class="editor-sig-name">Anna Weber</div>
           <div class="editor-sig-role">Leitende Redakteurin &nbsp;·&nbsp; Besser Produktvergleich</div>
