@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VitaGLP 2026 — Unabhängiger Test | Besser Produktvergleich</title>
-<meta name="description" content="Die meisten GLP-1-Supplemente halten nicht, was sie versprechen. VitaGLP ist eine Ausnahme — aber lesen Sie das hier, bevor Sie eine Entscheidung treffen.">
+<title>VitaGLP 2026 · Unabhängiger Test | Besser Produktvergleich</title>
+<meta name="description" content="Die meisten GLP-1-Supplemente halten nicht, was sie versprechen. VitaGLP ist eine Ausnahme, aber lesen Sie das hier, bevor Sie eine Entscheidung treffen.">
+<link rel="icon" type="image/png" href="https://www.verbraucherfokus-test.de/logo.png">
+<link rel="apple-touch-icon" href="https://www.verbraucherfokus-test.de/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
@@ -27,6 +29,10 @@
   --max:         740px;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
@@ -34,6 +40,8 @@ body {
   color: var(--text);
   background: var(--white);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 a { color: inherit; text-decoration: none; }
@@ -47,6 +55,8 @@ img { display: block; max-width: 100%; }
   text-align: center;
   padding: 8px 16px;
   letter-spacing: 0.03em;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
 }
 .topbar strong { color: #fff; }
 
@@ -59,20 +69,34 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 10px;
   position: sticky;
   top: 0;
   z-index: 100;
   box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  max-width: 100%;
+  overflow: hidden;
 }
-.logo { display: flex; align-items: center; gap: 10px; }
-.logo-mark {
+.logo { display: flex; align-items: center; gap: 10px; min-width: 0; flex: 1; }
+.logo-mark,
+.logo-img {
   width: 32px; height: 32px;
+  flex-shrink: 0;
+  object-fit: contain;
+  display: block;
+}
+.logo-mark {
   background: var(--blue);
   border-radius: 7px;
   display: flex; align-items: center; justify-content: center;
   color: #fff; font-weight: 800; font-size: 16px;
 }
-.logo-name { font-size: 15px; font-weight: 700; color: var(--blue); }
+.logo-name {
+  font-size: 15px; font-weight: 700; color: var(--blue);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .logo-tagline { font-size: 11px; color: var(--muted); margin-top: 1px; }
 .verified-badge {
   font-size: 12px; font-weight: 600;
@@ -81,6 +105,8 @@ header {
   border: 1px solid #b2dfc3;
   padding: 4px 12px; border-radius: 20px;
   display: flex; align-items: center; gap: 4px;
+  flex-shrink: 0;
+  max-width: 42%;
 }
 
 /* ─── HERO ─── */
@@ -95,6 +121,8 @@ header {
   color: var(--blue-mid);
   display: flex; align-items: center; gap: 10px;
   margin-bottom: 16px;
+  max-width: 100%;
+  flex-wrap: wrap;
 }
 .eyebrow::before {
   content: ""; display: block;
@@ -132,6 +160,8 @@ h1 em {
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   margin-bottom: 28px;
+  max-width: 100%;
+  min-width: 0;
 }
 .avatar {
   width: 40px; height: 40px; border-radius: 50%;
@@ -141,7 +171,10 @@ h1 em {
   flex-shrink: 0;
 }
 .byline-name { font-size: 14px; font-weight: 700; color: #111; }
-.byline-meta { font-size: 12px; color: var(--muted); margin-top: 1px; }
+.byline-meta {
+  font-size: 12px; color: var(--muted); margin-top: 1px;
+  overflow-wrap: anywhere;
+}
 .byline-pills {
   margin-left: auto;
   display: flex; gap: 8px; flex-wrap: wrap;
@@ -348,6 +381,7 @@ h1 em {
   margin-bottom: 28px;
   background: var(--white);
   box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+  max-width: 100%;
 }
 .card.winner {
   border-color: #2356a0;
@@ -512,6 +546,7 @@ h1 em {
   transition: background 0.18s;
   letter-spacing: 0.01em;
   white-space: nowrap;
+  max-width: 100%;
 }
 .btn-green::after,
 .btn-cta::after {
@@ -590,11 +625,16 @@ h1 em {
   display: flex; align-items: center; gap: 10px;
 }
 .testi-av {
-  width: 40px; height: 40px; border-radius: 50%;
-  object-fit: cover;
+  width: 44px; height: 44px; border-radius: 50%;
   flex-shrink: 0;
+  overflow: hidden;
   border: 2px solid var(--border);
   background: var(--bg);
+}
+.testi-av img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .testi-name { font-size: 13px; font-weight: 700; color: #222; }
 .testi-loc { font-size: 12px; color: var(--muted); }
@@ -805,33 +845,42 @@ footer {
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 600px) {
-  header { padding: 0 14px; height: 54px; }
-  .logo-name { font-size: 14px; }
-  .logo-tagline { display: none; }
-  .verified-badge { font-size: 10px; padding: 4px 8px; white-space: nowrap; }
+  .topbar { font-size: 10px; padding: 8px 12px; letter-spacing: 0.01em; }
 
-  .hero { padding: 24px 16px 0; }
-  .eyebrow { font-size: 10px; margin-bottom: 12px; flex-wrap: wrap; }
-  h1 { font-size: clamp(22px, 6vw, 28px); margin-bottom: 12px; line-height: 1.25; }
+  header { padding: 0 12px; height: 54px; gap: 8px; }
+  .logo { gap: 8px; }
+  .logo-mark,
+  .logo-img { width: 28px; height: 28px; }
+  .logo-mark { font-size: 14px; }
+  .logo-name { font-size: 13px; max-width: 100%; }
+  .logo-tagline { display: none; }
+  .verified-badge { font-size: 9px; padding: 4px 7px; max-width: none; white-space: nowrap; }
+
+  .hero { padding: 24px 16px 0; max-width: 100%; overflow-x: hidden; }
+  .eyebrow { font-size: 10px; margin-bottom: 12px; letter-spacing: 0.08em; }
+  h1 { font-size: clamp(22px, 6vw, 28px); margin-bottom: 12px; line-height: 1.25; overflow-wrap: anywhere; }
   .lead { font-size: 15px; margin-bottom: 20px; line-height: 1.6; }
   .byline { margin-bottom: 24px; padding: 14px 0; }
+  .byline > div:nth-child(2) { min-width: 0; flex: 1; }
 
-  .body-section { padding: 16px 16px 36px; }
+  .body-section { padding: 16px 16px 36px; max-width: 100%; overflow-x: hidden; }
   .body-section h2:first-of-type { margin-top: 12px; padding-top: 4px; }
 
-  .comparison-section { padding: 0 16px 40px; }
-  .card-header-winner { padding: 9px 12px; gap: 8px; }
+  .comparison-section { padding: 0 16px 40px; max-width: 100%; overflow-x: hidden; }
+  .card-header-winner { padding: 9px 12px; gap: 8px; max-width: 100%; }
   .card-header-winner .badge { font-size: 8px; padding: 3px 6px; }
   .card-header-full { display: none; }
   .card-header-short { display: inline; }
   .card-header-runner { padding: 9px 14px; font-size: 12px; white-space: nowrap; }
   .card-cta { padding: 16px; }
-  .btn-green, .btn-cta { padding: 14px 14px; gap: 6px; }
+  .btn-green, .btn-cta { padding: 14px 12px; gap: 6px; font-size: 13px; }
 
   .stats-strip { grid-template-columns: repeat(2, 1fr); }
   .card-overview { grid-template-columns: 1fr; padding: 20px 16px; }
-  .card-img { width: 100%; height: 140px; }
-  .pc-table { margin: 0 16px 16px; }
+  .card-img { width: 100%; max-width: 100%; height: 140px; }
+  .price-row { gap: 6px; }
+  .price-note { font-size: 12px; }
+  .pc-table { margin: 0 16px 16px; max-width: calc(100% - 32px); }
   .pc-table-head, .pc-table-body { grid-template-columns: 1fr; }
   .pc-col.pros { border-right: none; border-bottom: 1px solid var(--border); }
   .pc-col-head.pros { border-right: none; border-bottom: 1px solid var(--border); }
@@ -839,7 +888,8 @@ footer {
   .testi-grid { grid-template-columns: 1fr; }
   .criteria-grid { grid-template-columns: 1fr; }
   .byline-pills { display: none; }
-  .feat-table td:nth-child(2) { white-space: normal; }
+  .feat-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .feat-table td:nth-child(2) { white-space: normal; width: auto; min-width: 0; }
   .editor-section { padding: 0 16px 40px; }
   .editor-box-body { padding: 22px 18px 20px; }
   .final-cta { padding: 44px 16px; }
@@ -847,6 +897,7 @@ footer {
   .note-on-links { padding: 0 16px; margin-bottom: 36px; }
   .trust-row { gap: 12px; }
   .final-trust { gap: 12px; font-size: 12px; }
+  .section-note { padding: 0 4px; overflow-wrap: anywhere; }
 }
 </style>
 </head>
@@ -854,13 +905,13 @@ footer {
 
 <!-- TOP BAR -->
 <div class="topbar">
-  Vergleich wird regelmäßig aktualisiert &nbsp;·&nbsp; Zuletzt geprüft: <strong>Juni 2026</strong> &nbsp;·&nbsp; Preise können sich ändern
+  Vergleich wird regelmäßig aktualisiert · Zuletzt geprüft: <strong>Juni 2026</strong> · Preise können sich ändern
 </div>
 
 <!-- HEADER -->
 <header>
   <div class="logo">
-    <div class="logo-mark">BP</div>
+    <img class="logo-img" src="https://www.verbraucherfokus-test.de/logo.png" alt="Besser Produktvergleich" width="32" height="32">
     <div>
       <div class="logo-name">Besser Produktvergleich</div>
       <div class="logo-tagline">Unabhängiger Verbrauchervergleich</div>
@@ -871,16 +922,16 @@ footer {
 
 <!-- HERO -->
 <div class="hero">
-  <div class="eyebrow">Unabhängiger Test 2026 &nbsp;·&nbsp; GLP-1 Nahrungsergänzungsmittel</div>
+  <div class="eyebrow">Unabhängiger Test 2026 · GLP-1 Nahrungsergänzungsmittel</div>
 
-  <h1 id="page-h1">Warum VitaGLP alle anderen GLP-1-Supplemente schlägt — <em>wir haben über 20 davon 6 Monate lang getestet.</em></h1>
+  <h1 id="page-h1">Warum VitaGLP alle anderen GLP-1-Supplemente schlägt, <em>wir haben über 20 davon 6 Monate lang getestet.</em></h1>
   <p id="page-sub" class="lead">Wir haben außerdem einen Sonderrabatt und eine 30-tägige Risikofreiheit für unsere Leser ausgehandelt. Lesen Sie bis zum Ende.</p>
 
   <div class="byline">
     <div class="avatar">AW</div>
     <div>
       <div class="byline-name">Anna Weber</div>
-      <div class="byline-meta">Leitende Redakteurin, Besser Produktvergleich &nbsp;·&nbsp; Geprüft &amp; Verglichen &nbsp;·&nbsp; 7 Min Lesezeit</div>
+      <div class="byline-meta">Leitende Redakteurin, Besser Produktvergleich · Geprüft &amp; Verglichen · 7 Min Lesezeit</div>
     </div>
     <div class="byline-pills">
       <span class="pill">Unabhängig</span>
@@ -909,18 +960,18 @@ footer {
   </div>
 
   <div class="summary-box">
-    <div class="summary-label">📋 Kurzübersicht — das Ergebnis unseres Tests</div>
+    <div class="summary-label">📋 Kurzübersicht, das Ergebnis unseres Tests</div>
     <div class="summary-row">
       <span class="summary-rank">#1</span>
-      <p><strong>VitaGLP (9,4/10):</strong> Klarer Testsieger. Höchste Wirkstoffdosierung, überlegene Bioverfügbarkeit, hergestellt in Deutschland — und das einzige Produkt mit bedingungsloser 30-Tage-Geld-zurück-Garantie. Hat alle anderen weit hinter sich gelassen. <strong>Exklusiver Sonderrabatt für unsere Leser verfügbar.</strong></p>
+      <p><strong>VitaGLP (9,4/10):</strong> Klarer Testsieger. Höchste Wirkstoffdosierung, überlegene Bioverfügbarkeit, hergestellt in Deutschland und das einzige Produkt mit bedingungsloser 30-Tage-Geld-zurück-Garantie. Hat alle anderen weit hinter sich gelassen. <strong>Exklusiver Sonderrabatt für unsere Leser verfügbar.</strong></p>
     </div>
     <div class="summary-row">
       <span class="summary-rank">#2</span>
-      <p><strong>CoreGLP (7,1/10):</strong> Solide Grundformel, die funktioniert — aber mit spürbar niedrigerer Wirkstoffkonzentration als VitaGLP und ohne Garantie. Teurer, weniger wirksam.</p>
+      <p><strong>CoreGLP (7,1/10):</strong> Solide Grundformel, die funktioniert, aber mit spürbar niedrigerer Wirkstoffkonzentration als VitaGLP und ohne Garantie. Teurer, weniger wirksam.</p>
     </div>
     <div class="summary-row">
       <span class="summary-rank">#3</span>
-      <p><strong>wego6 (6,8/10):</strong> Bekannter Name, schwache Formel. Günstige Rohstoffe, keine Rückgabemöglichkeit, deutlich schlechtere Nutzererfahrungen. Knapp bestanden — aber wir würden es nicht empfehlen.</p>
+      <p><strong>wego6 (6,8/10):</strong> Bekannter Name, schwache Formel. Günstige Rohstoffe, keine Rückgabemöglichkeit, deutlich schlechtere Nutzererfahrungen. Knapp bestanden, aber wir würden es nicht empfehlen.</p>
     </div>
   </div>
 </div>
@@ -930,17 +981,17 @@ footer {
 
   <h2>Warum wir diesen Test gemacht haben</h2>
 
-  <p>Der deutsche Markt für GLP-1-Nahrungsergänzungsmittel ist in den letzten zwei Jahren explodiert. Jede Woche erscheinen neue Produkte, jedes mit denselben Versprechen: mehr Sättigung, weniger Hunger, kontrolliertes Gewicht — ohne Rezept, ohne Arzttermin, ohne die bekannten Nebenwirkungen verschreibungspflichtiger GLP-1-Medikamente.</p>
+  <p>Der deutsche Markt für GLP-1-Nahrungsergänzungsmittel ist in den letzten zwei Jahren explodiert. Jede Woche erscheinen neue Produkte, jedes mit denselben Versprechen: mehr Sättigung, weniger Hunger, kontrolliertes Gewicht, ohne Rezept, ohne Arzttermin, ohne die bekannten Nebenwirkungen verschreibungspflichtiger GLP-1-Medikamente.</p>
 
-  <p>Das Problem: Die meisten dieser Produkte halten nicht, was sie versprechen. Nicht weil das Konzept falsch ist — die Wissenschaft hinter GLP-1 ist solide und gut belegt. Sondern weil der Markt von Produkten überflutet wird, die entweder zu wenig Wirkstoff enthalten, minderwertige Rohstoffe verwenden oder ihre Formeln hinter nichtssagenden „proprietären Mischungen" verstecken, die eine unabhängige Bewertung unmöglich machen.</p>
+  <p>Das Problem: Die meisten dieser Produkte halten nicht, was sie versprechen. Nicht weil das Konzept falsch ist, die Wissenschaft hinter GLP-1 ist solide und gut belegt. Sondern weil der Markt von Produkten überflutet wird, die entweder zu wenig Wirkstoff enthalten, minderwertige Rohstoffe verwenden oder ihre Formeln hinter nichtssagenden „proprietären Mischungen" verstecken, die eine unabhängige Bewertung unmöglich machen.</p>
 
   <p>Wir wollten wissen, welche Produkte wirklich funktionieren. Also haben wir es herausgefunden.</p>
 
   <div class="pull-quote">Sechs Monate. Über 20 Produkte. Drei haben bestanden. Eines hat alle anderen weit hinter sich gelassen. Hier ist, was wir gefunden haben.</div>
 
-  <h2>Was wir getestet haben — und wie</h2>
+  <h2>Was wir getestet haben und wie</h2>
 
-  <p>Wir haben über 20 GLP-1-Nahrungsergänzungsmittel auf dem deutschen Markt ausgewählt und über sechs Monate getestet. Jedes Produkt wurde blind von Testpersonen eingenommen — sie wussten nicht, welches Produkt sie testeten. Parallel dazu haben wir jede Formel unabhängig analysiert: Dosierungen, Bioverfügbarkeit, Transparenz der Inhaltsstoffe, klinische Evidenz.</p>
+  <p>Wir haben über 20 GLP-1-Nahrungsergänzungsmittel auf dem deutschen Markt ausgewählt und über sechs Monate getestet. Jedes Produkt wurde blind von Testpersonen eingenommen, sie wussten nicht, welches Produkt sie testeten. Parallel dazu haben wir jede Formel unabhängig analysiert: Dosierungen, Bioverfügbarkeit, Transparenz der Inhaltsstoffe, klinische Evidenz.</p>
 
   <div class="criteria-box">
     <div class="criteria-label">🔎 Unsere Bewertungskriterien</div>
@@ -954,22 +1005,22 @@ footer {
     </div>
   </div>
 
-  <h2>Was wir herausgefunden haben — und warum die meisten Produkte scheitern</h2>
+  <h2>Was wir herausgefunden haben und warum die meisten Produkte scheitern</h2>
 
   <p>Von über 20 getesteten Produkten sind die meisten in mindestens einem entscheidenden Bereich durchgefallen. Die häufigsten Probleme:</p>
 
   <div class="warning-box">
     <div class="warning-box-label">⚠️ Was bei den meisten Produkten schiefläuft</div>
-    <p><strong>Zu geringe Dosierungen.</strong> Viele Produkte enthalten die richtigen Wirkstoffe — aber in Mengen, die klinisch kaum relevant sind. Das Etikett sieht beeindruckend aus. Die Wirkung bleibt aus. Das ist das häufigste Problem, das wir gesehen haben.</p>
-    <p><strong>Schlechte Bioverfügbarkeit.</strong> Ein Wirkstoff, der nicht effizient aufgenommen wird, bringt wenig — egal wie hoch die Dosierung auf dem Etikett ist. Mehrere Produkte in unserem Test verwendeten Rohstoffformen mit nachweislich schlechter Bioverfügbarkeit, ohne das zu kommunizieren.</p>
-    <p><strong>Versteckte Formeln.</strong> „Proprietäre Mischung" bedeutet in der Praxis oft: Wir zeigen Ihnen nicht, wie viel von jedem Wirkstoff enthalten ist. Das macht eine unabhängige Bewertung unmöglich — und sollte für jeden Käufer ein Warnsignal sein.</p>
+    <p><strong>Zu geringe Dosierungen.</strong> Viele Produkte enthalten die richtigen Wirkstoffe, aber in Mengen, die klinisch kaum relevant sind. Das Etikett sieht beeindruckend aus. Die Wirkung bleibt aus. Das ist das häufigste Problem, das wir gesehen haben.</p>
+    <p><strong>Schlechte Bioverfügbarkeit.</strong> Ein Wirkstoff, der nicht effizient aufgenommen wird, bringt wenig, egal wie hoch die Dosierung auf dem Etikett ist. Mehrere Produkte in unserem Test verwendeten Rohstoffformen mit nachweislich schlechter Bioverfügbarkeit, ohne das zu kommunizieren.</p>
+    <p><strong>Versteckte Formeln.</strong> „Proprietäre Mischung" bedeutet in der Praxis oft: Wir zeigen Ihnen nicht, wie viel von jedem Wirkstoff enthalten ist. Das macht eine unabhängige Bewertung unmöglich und sollte für jeden Käufer ein Warnsignal sein.</p>
   </div>
 
   <p>Die drei Produkte, die unseren Test bestanden haben, hatten eines gemeinsam: Sie haben keine dieser Abkürzungen genommen. Transparente Formeln, klinisch relevante Dosierungen, nachgewiesene Bioverfügbarkeit. Und eines dieser drei hat in jeder einzelnen Kategorie besser abgeschnitten als die anderen.</p>
 
   <h2>Warum VitaGLP alle anderen weit hinter sich gelassen hat</h2>
 
-  <p>VitaGLP ist kein Marktführer mit dem größten Marketingbudget. Was es ist: das Produkt mit der stärksten Formel, der höchsten Transparenz und dem besten Preis-Leistungs-Verhältnis in unserem gesamten Test. Die Wirkstoffdosierung liegt messbar über der Konkurrenz, die Bioverfügbarkeit ist durch patentierte Aufnahmetechnologie deutlich höher — und als einziges Produkt bietet es eine bedingungslose 30-Tage-Geld-zurück-Garantie.</p>
+  <p>VitaGLP ist kein Marktführer mit dem größten Marketingbudget. Was es ist: das Produkt mit der stärksten Formel, der höchsten Transparenz und dem besten Preis-Leistungs-Verhältnis in unserem gesamten Test. Die Wirkstoffdosierung liegt messbar über der Konkurrenz, die Bioverfügbarkeit ist durch patentierte Aufnahmetechnologie deutlich höher und als einziges Produkt bietet es eine bedingungslose 30-Tage-Geld-zurück-Garantie.</p>
 
   <div class="highlight-box">
     <div class="highlight-box-label">✓ Was VitaGLP von allen anderen unterscheidet</div>
@@ -977,7 +1028,7 @@ footer {
       <tr>
         <td>✓</td>
         <td>Klinisch relevante Dosierung</td>
-        <td>Wirkstoffmengen in einem Bereich, der in unabhängigen Studien tatsächlich Wirkung gezeigt hat — nicht nur Spurendosen.</td>
+        <td>Wirkstoffmengen in einem Bereich, der in unabhängigen Studien tatsächlich Wirkung gezeigt hat, nicht nur Spurendosen.</td>
       </tr>
       <tr>
         <td>✓</td>
@@ -1002,25 +1053,25 @@ footer {
       <tr>
         <td>✓</td>
         <td>Sonderrabatt für Leser</td>
-        <td>Exklusiver Rabatt für Leser von Besser Produktvergleich — nur über den offiziellen Shop erhältlich.</td>
+        <td>Exklusiver Rabatt für Leser von Besser Produktvergleich, nur über den offiziellen Shop erhältlich.</td>
       </tr>
     </table>
   </div>
 
-  <p>Individuelle Ergebnisse variieren, und Nahrungsergänzungsmittel ersetzen keine medizinische Behandlung. Aber wenn Sie ein GLP-1-Supplement kaufen möchten und sichergehen wollen, dass Sie nicht Geld für ein Produkt ausgeben, das kaum messbare Wirkung hat — VitaGLP ist nach unserem Test die einzige Wahl, die wir ohne Vorbehalt empfehlen können.</p>
+  <p>Individuelle Ergebnisse variieren, und Nahrungsergänzungsmittel ersetzen keine medizinische Behandlung. Aber wenn Sie ein GLP-1-Supplement kaufen möchten und sichergehen wollen, dass Sie nicht Geld für ein Produkt ausgeben, das kaum messbare Wirkung hat, VitaGLP ist nach unserem Test die einzige Wahl, die wir ohne Vorbehalt empfehlen können.</p>
 
 </div>
 
 <!-- COMPARISON -->
 <div class="comparison-section">
   <h2 class="section-title">Die 3 Produkte, die unseren Test bestanden haben</h2>
-  <p class="section-note">Stand: Juni 2026 &nbsp;·&nbsp; Sortiert nach Gesamtbewertung &nbsp;·&nbsp; Die meisten der 20+ getesteten Produkte sind nicht aufgeführt — sie haben unsere Mindestanforderungen nicht erfüllt</p>
+  <p class="section-note">Stand: Juni 2026 &nbsp;·&nbsp; Sortiert nach Gesamtbewertung &nbsp;·&nbsp; Die meisten der 20+ getesteten Produkte sind nicht aufgeführt, sie haben unsere Mindestanforderungen nicht erfüllt</p>
 
   <!-- ── CARD 1 ── -->
   <div class="card winner">
     <div class="card-header-winner">
       <span class="card-header-text">
-        <span class="card-header-full">🏆 #1 · Testsieger — Empfehlung der Redaktion</span>
+        <span class="card-header-full">🏆 #1 · Testsieger · Empfehlung der Redaktion</span>
         <span class="card-header-short">🏆 #1 · Testsieger</span>
       </span>
       <span class="badge">TOP PICK</span>
@@ -1050,15 +1101,15 @@ footer {
       </div>
       <div class="pc-table-body">
         <div class="pc-col pros">
-          <div class="pc-item"><span class="pc-icon pro">✓</span><span><strong>Höchste Wirkstoffdosierung im Test</strong> — Klinisch relevante Mengen, nicht nur Spurendosen wie bei vielen Konkurrenten.</span></div>
-          <div class="pc-item"><span class="pc-icon pro">✓</span><span><strong>Patentierte Aufnahmetechnologie</strong> — Überlegene Bioverfügbarkeit sorgt dafür, dass der Wirkstoff tatsächlich im Körper ankommt und wirkt.</span></div>
-          <div class="pc-item"><span class="pc-icon pro">✓</span><span><strong>Vollständige Formel-Transparenz</strong> — Alle Wirkstoffe und Dosierungen klar ausgewiesen. Keine proprietären Mischungen.</span></div>
-          <div class="pc-item"><span class="pc-icon pro">✓</span><span><strong>Hergestellt in Deutschland</strong> — GMP-zertifizierte Produktion, strenge Qualitätskontrollen, keine Importe aus Drittländern.</span></div>
-          <div class="pc-item"><span class="pc-icon pro">✓</span><span><strong>30 Tage Geld-zurück-Garantie</strong> — Bedingungslos. Das einzige Produkt im Test, das Ihnen das Risiko vollständig abnimmt.</span></div>
-          <div class="pc-item"><span class="pc-icon pro">✓</span><span><strong>Kostenloser Versand</strong> — Diskrete Lieferung innerhalb von 2–3 Werktagen nach ganz Deutschland.</span></div>
+          <div class="pc-item"><span class="pc-icon pro">✓</span><span><strong>Höchste Wirkstoffdosierung im Test</strong>, Klinisch relevante Mengen, nicht nur Spurendosen wie bei vielen Konkurrenten.</span></div>
+          <div class="pc-item"><span class="pc-icon pro">✓</span><span><strong>Patentierte Aufnahmetechnologie</strong>, Überlegene Bioverfügbarkeit sorgt dafür, dass der Wirkstoff tatsächlich im Körper ankommt und wirkt.</span></div>
+          <div class="pc-item"><span class="pc-icon pro">✓</span><span><strong>Vollständige Formel-Transparenz</strong>, Alle Wirkstoffe und Dosierungen klar ausgewiesen. Keine proprietären Mischungen.</span></div>
+          <div class="pc-item"><span class="pc-icon pro">✓</span><span><strong>Hergestellt in Deutschland</strong>, GMP-zertifizierte Produktion, strenge Qualitätskontrollen, keine Importe aus Drittländern.</span></div>
+          <div class="pc-item"><span class="pc-icon pro">✓</span><span><strong>30 Tage Geld-zurück-Garantie</strong>, Bedingungslos. Das einzige Produkt im Test, das Ihnen das Risiko vollständig abnimmt.</span></div>
+          <div class="pc-item"><span class="pc-icon pro">✓</span><span><strong>Kostenloser Versand</strong>, Diskrete Lieferung innerhalb von 2–3 Werktagen nach ganz Deutschland.</span></div>
         </div>
         <div class="pc-col cons">
-          <div class="pc-item"><span class="pc-icon con">!</span><span>Nur online erhältlich — nicht im stationären Handel.</span></div>
+          <div class="pc-item"><span class="pc-icon con">!</span><span>Nur online erhältlich, nicht im stationären Handel.</span></div>
           <div class="pc-item"><span class="pc-icon con">!</span><span>Aufgrund hoher Nachfrage kann es gelegentlich zu Lieferverzögerungen kommen.</span></div>
         </div>
       </div>
@@ -1104,14 +1155,14 @@ footer {
       </div>
       <div class="pc-table-body">
         <div class="pc-col pros">
-          <div class="pc-item"><span class="pc-icon pro">✓</span><span><strong>Etablierte Marke</strong> — Seit mehreren Jahren auf dem Markt mit einer soliden Kundenbasis in Deutschland.</span></div>
-          <div class="pc-item"><span class="pc-icon pro">✓</span><span><strong>Angemessene Grundformel</strong> — Enthält die wichtigsten Wirkstoffe in akzeptabler, wenn auch nicht optimaler Dosierung.</span></div>
-          <div class="pc-item"><span class="pc-icon pro">✓</span><span><strong>Regelmäßige Rabattaktionen</strong> — Gelegentlich mit deutlichen Preisnachlässen erhältlich.</span></div>
+          <div class="pc-item"><span class="pc-icon pro">✓</span><span><strong>Etablierte Marke</strong>, Seit mehreren Jahren auf dem Markt mit einer soliden Kundenbasis in Deutschland.</span></div>
+          <div class="pc-item"><span class="pc-icon pro">✓</span><span><strong>Angemessene Grundformel</strong>, Enthält die wichtigsten Wirkstoffe in akzeptabler, wenn auch nicht optimaler Dosierung.</span></div>
+          <div class="pc-item"><span class="pc-icon pro">✓</span><span><strong>Regelmäßige Rabattaktionen</strong>, Gelegentlich mit deutlichen Preisnachlässen erhältlich.</span></div>
         </div>
         <div class="pc-col cons">
-          <div class="pc-item"><span class="pc-icon con">!</span><span>Teurer als VitaGLP — trotz messbar niedrigerer Wirkstoffkonzentration.</span></div>
-          <div class="pc-item"><span class="pc-icon con">!</span><span>Keine bedingungslose Geld-zurück-Garantie — Rückgabe nur unter eingeschränkten Bedingungen möglich.</span></div>
-          <div class="pc-item"><span class="pc-icon con">!</span><span>Bioverfügbarkeit spürbar niedriger als beim Testsieger — weniger Wirkstoff kommt tatsächlich an.</span></div>
+          <div class="pc-item"><span class="pc-icon con">!</span><span>Teurer als VitaGLP, trotz messbar niedrigerer Wirkstoffkonzentration.</span></div>
+          <div class="pc-item"><span class="pc-icon con">!</span><span>Keine bedingungslose Geld-zurück-Garantie, Rückgabe nur unter eingeschränkten Bedingungen möglich.</span></div>
+          <div class="pc-item"><span class="pc-icon con">!</span><span>Bioverfügbarkeit spürbar niedriger als beim Testsieger, weniger Wirkstoff kommt tatsächlich an.</span></div>
         </div>
       </div>
     </div>
@@ -1144,14 +1195,14 @@ footer {
       </div>
       <div class="pc-table-body">
         <div class="pc-col pros">
-          <div class="pc-item"><span class="pc-icon pro">✓</span><span><strong>Bekannter Markenname</strong> — Hohe Bekanntheit durch intensive Marketingkampagnen in Deutschland.</span></div>
-          <div class="pc-item"><span class="pc-icon pro">✓</span><span><strong>Günstigster Einstiegspreis</strong> — Niedrigstes Einstiegsangebot der drei getesteten Produkte.</span></div>
-          <div class="pc-item"><span class="pc-icon pro">✓</span><span><strong>Breite Verfügbarkeit</strong> — In verschiedenen Online-Shops erhältlich.</span></div>
+          <div class="pc-item"><span class="pc-icon pro">✓</span><span><strong>Bekannter Markenname</strong>, Hohe Bekanntheit durch intensive Marketingkampagnen in Deutschland.</span></div>
+          <div class="pc-item"><span class="pc-icon pro">✓</span><span><strong>Günstigster Einstiegspreis</strong>, Niedrigstes Einstiegsangebot der drei getesteten Produkte.</span></div>
+          <div class="pc-item"><span class="pc-icon pro">✓</span><span><strong>Breite Verfügbarkeit</strong>, In verschiedenen Online-Shops erhältlich.</span></div>
         </div>
         <div class="pc-col cons">
-          <div class="pc-item"><span class="pc-icon con">!</span><span>Günstigere Rohstoffe — Wirkstoffqualität deutlich unter dem Niveau von VitaGLP.</span></div>
-          <div class="pc-item"><span class="pc-icon con">!</span><span>Keine Geld-zurück-Garantie — Kein Rückgaberecht bei Unzufriedenheit.</span></div>
-          <div class="pc-item"><span class="pc-icon con">!</span><span>Kundenbewertungen deutlich schlechter — Häufige Berichte über ausbleibende Wirkung nach mehreren Wochen.</span></div>
+          <div class="pc-item"><span class="pc-icon con">!</span><span>Günstigere Rohstoffe, Wirkstoffqualität deutlich unter dem Niveau von VitaGLP.</span></div>
+          <div class="pc-item"><span class="pc-icon con">!</span><span>Keine Geld-zurück-Garantie, Kein Rückgaberecht bei Unzufriedenheit.</span></div>
+          <div class="pc-item"><span class="pc-icon con">!</span><span>Kundenbewertungen deutlich schlechter, Häufige Berichte über ausbleibende Wirkung nach mehreren Wochen.</span></div>
         </div>
       </div>
     </div>
@@ -1168,48 +1219,56 @@ footer {
     <div class="testi-grid">
       <div class="testi-card">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">„Ich war anfangs sehr skeptisch — ich hatte schon CoreGLP ausprobiert und kaum etwas gespürt. Nach vier Wochen VitaGLP <strong>habe ich endlich das Sättigungsgefühl, das mir immer gefehlt hat.</strong> Ich esse weniger, ohne mich zu quälen. Der Unterschied ist nicht subtil."</p>
+        <p class="testi-quote">„Ich war anfangs sehr skeptisch, ich hatte schon CoreGLP ausprobiert und kaum etwas gespürt. Nach vier Wochen VitaGLP <strong>habe ich endlich das Sättigungsgefühl, das mir immer gefehlt hat.</strong> Ich esse weniger, ohne mich zu quälen. Der Unterschied ist nicht subtil."</p>
         <div class="testi-author">
-          <img class="testi-av" src="https://randomuser.me/api/portraits/women/65.jpg" alt="Katharina M." width="40" height="40" loading="lazy">
+          <div class="testi-av">
+            <img src="images/katharina-m.jpg" alt="Katharina M." width="44" height="44" loading="lazy">
+          </div>
           <div>
             <div class="testi-name">Katharina M.</div>
-            <div class="testi-loc">München &nbsp;·&nbsp; Verifizierter Kauf</div>
+            <div class="testi-loc">München · Verifizierter Kauf</div>
           </div>
         </div>
       </div>
 
       <div class="testi-card">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">„Was mich überzeugt hat, war die Transparenz. Alle Inhaltsstoffe, alle Dosierungen — klar angegeben. Keine proprietären Mischungen. <strong>Nach sechs Wochen habe ich 4,5 kg abgenommen</strong> — ohne Crash-Diät, einfach durch deutlich weniger Appetit. Ich hätte nicht gedacht, dass das so gut funktioniert."</p>
+        <p class="testi-quote">„Was mich überzeugt hat, war die Transparenz. Alle Inhaltsstoffe, alle Dosierungen, klar angegeben. Keine proprietären Mischungen. <strong>Nach sechs Wochen habe ich 4,5 kg abgenommen</strong>, ohne Crash-Diät, einfach durch deutlich weniger Appetit. Ich hätte nicht gedacht, dass das so gut funktioniert."</p>
         <div class="testi-author">
-          <img class="testi-av" src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sandra B." width="40" height="40" loading="lazy">
+          <div class="testi-av">
+            <img src="images/sandra-b.jpg" alt="Sandra B." width="44" height="44" loading="lazy">
+          </div>
           <div>
             <div class="testi-name">Sandra B.</div>
-            <div class="testi-loc">Berlin &nbsp;·&nbsp; Verifizierter Kauf</div>
+            <div class="testi-loc">Berlin · Verifizierter Kauf</div>
           </div>
         </div>
       </div>
 
       <div class="testi-card">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">„Ich hatte wego6 vorher getestet — zwei Monate lang, kaum Wirkung. Dann bin ich auf VitaGLP umgestiegen. <strong>Der Unterschied war nach zwei Wochen deutlich spürbar.</strong> Weniger Hunger, mehr Energie, besserer Schlaf. Ich werde nicht mehr wechseln."</p>
+        <p class="testi-quote">„Ich hatte wego6 vorher getestet, zwei Monate lang, kaum Wirkung. Dann bin ich auf VitaGLP umgestiegen. <strong>Der Unterschied war nach zwei Wochen deutlich spürbar.</strong> Weniger Hunger, mehr Energie, besserer Schlaf. Ich werde nicht mehr wechseln."</p>
         <div class="testi-author">
-          <img class="testi-av" src="https://randomuser.me/api/portraits/men/22.jpg" alt="Thomas H." width="40" height="40" loading="lazy">
+          <div class="testi-av">
+            <img src="images/thomas-h.jpg" alt="Thomas H." width="44" height="44" loading="lazy">
+          </div>
           <div>
             <div class="testi-name">Thomas H.</div>
-            <div class="testi-loc">Hamburg &nbsp;·&nbsp; Verifizierter Kauf</div>
+            <div class="testi-loc">Hamburg · Verifizierter Kauf</div>
           </div>
         </div>
       </div>
 
       <div class="testi-card">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">„Ich bin 54 und hatte jahrelang mit meinem Gewicht gekämpft. Die Garantie hat mir den letzten Anstoß gegeben — wenn es nicht wirkt, bekomme ich mein Geld zurück. <strong>Es hat gewirkt. Ich habe die Garantie nicht gebraucht.</strong> Aber zu wissen, dass sie da ist, hat mir die Entscheidung leicht gemacht."</p>
+        <p class="testi-quote">„Ich bin 54 und hatte jahrelang mit meinem Gewicht gekämpft. Die Garantie hat mir den letzten Anstoß gegeben, wenn es nicht wirkt, bekomme ich mein Geld zurück. <strong>Es hat gewirkt. Ich habe die Garantie nicht gebraucht.</strong> Aber zu wissen, dass sie da ist, hat mir die Entscheidung leicht gemacht."</p>
         <div class="testi-author">
-          <img class="testi-av" src="https://randomuser.me/api/portraits/men/46.jpg" alt="Markus F." width="40" height="40" loading="lazy">
+          <div class="testi-av">
+            <img src="images/markus-f.jpg" alt="Markus F." width="44" height="44" loading="lazy">
+          </div>
           <div>
             <div class="testi-name">Markus F.</div>
-            <div class="testi-loc">Frankfurt &nbsp;·&nbsp; Verifizierter Kauf</div>
+            <div class="testi-loc">Frankfurt · Verifizierter Kauf</div>
           </div>
         </div>
       </div>
@@ -1222,11 +1281,11 @@ footer {
   <div class="editor-box">
     <div class="editor-box-header">📝 &nbsp; Anmerkung der Redaktion</div>
     <div class="editor-box-body">
-      <h2>Warum wir nur drei Produkte auflisten — <em>und was mit den anderen 12 passiert ist</em></h2>
+      <h2>Warum wir nur drei Produkte auflisten, <em>und was mit den anderen 12 passiert ist</em></h2>
       <p>Das ist eine Frage, die wir uns selbst gestellt haben. Wenn wir über 20 Produkte testen, warum zeigen wir nur drei?</p>
-      <p>Die Antwort ist einfach: Die anderen haben unsere Mindestanforderungen nicht erfüllt — in den meisten Fällen deutlich. Entweder zu geringe Dosierungen, schlechte Bioverfügbarkeit, versteckte Formeln oder konsistent negative Kundenerfahrungen. Wir empfehlen lieber weniger Produkte, als Sie zu einem Anbieter zu schicken, für den wir nicht bürgen können.</p>
+      <p>Die Antwort ist einfach: Die anderen haben unsere Mindestanforderungen nicht erfüllt, in den meisten Fällen deutlich. Entweder zu geringe Dosierungen, schlechte Bioverfügbarkeit, versteckte Formeln oder konsistent negative Kundenerfahrungen. Wir empfehlen lieber weniger Produkte, als Sie zu einem Anbieter zu schicken, für den wir nicht bürgen können.</p>
       <p>Die drei Produkte, die Sie hier sehen, haben jeden Prüfpunkt bestanden. Das bedeutet nicht, dass sie perfekt sind. Es bedeutet, dass sie die einzigen sind, bei denen wir sagen können: Wenn Sie ein GLP-1-Supplement kaufen möchten, sind das die Optionen, die wir nach unserem Test für vertretbar halten.</p>
-      <p>Die Frage, die wir bei jedem Produkt gestellt haben: <em>Würden wir das jemandem empfehlen, dem wir vertrauen?</em> Bei VitaGLP lautet die Antwort klar ja — wegen der Wirkstoffqualität, der Transparenz, der Garantie und des Preises. CoreGLP und wego6 sind legitime Produkte, die unseren Mindeststandard erfüllt haben — sie haben in mehr Kategorien schlechter abgeschnitten und sind deshalb nicht unsere erste Empfehlung.</p>
+      <p>Die Frage, die wir bei jedem Produkt gestellt haben: <em>Würden wir das jemandem empfehlen, dem wir vertrauen?</em> Bei VitaGLP lautet die Antwort klar ja, wegen der Wirkstoffqualität, der Transparenz, der Garantie und des Preises. CoreGLP und wego6 sind legitime Produkte, die unseren Mindeststandard erfüllt haben, sie haben in mehr Kategorien schlechter abgeschnitten und sind deshalb nicht unsere erste Empfehlung.</p>
       <div class="editor-sig">
         <div class="avatar">AW</div>
         <div>
@@ -1242,7 +1301,7 @@ footer {
 <div class="final-cta">
   <div class="final-cta-inner">
     <div class="final-eyebrow">Unser Testsieger</div>
-    <h2>VitaGLP — <em>9,4/10</em> in unserem unabhängigen Test</h2>
+    <h2>VitaGLP · <em>9,4/10</em> in unserem unabhängigen Test</h2>
     <p class="final-cta-sub">Derzeit mit 30 Tage Geld-zurück-Garantie und kostenlosem Versand erhältlich.</p>
     <div style="display:flex;justify-content:center;margin-bottom:28px;">
       <div class="score-chip">
@@ -1269,7 +1328,7 @@ footer {
 <div class="note-on-links">
   <div class="note-box">
     <div class="note-box-label">📌 Hinweis zu unseren Links</div>
-    <p>Wir haben von Lesern Berichte über Preisabweichungen und verzögerte Lieferungen bei CoreGLP und wego6 erhalten. Bis wir ein konsistentes Kundenerlebnis unabhängig bestätigen können, verlinken wir nicht auf diese Anbieter. Wir nehmen das Vertrauen unserer Leser ernst — wir empfehlen lieber ein Produkt weniger, als Sie zu einem Anbieter zu schicken, für den wir nicht bürgen können.</p>
+    <p>Wir haben von Lesern Berichte über Preisabweichungen und verzögerte Lieferungen bei CoreGLP und wego6 erhalten. Bis wir ein konsistentes Kundenerlebnis unabhängig bestätigen können, verlinken wir nicht auf diese Anbieter. Wir nehmen das Vertrauen unserer Leser ernst, wir empfehlen lieber ein Produkt weniger, als Sie zu einem Anbieter zu schicken, für den wir nicht bürgen können.</p>
   </div>
 </div>
 
@@ -1284,12 +1343,12 @@ footer {
 
   <div class="faq-item">
     <button class="faq-btn" onclick="toggleFaq(this)">Wie unterscheidet sich VitaGLP von verschreibungspflichtigen GLP-1-Medikamenten?<span class="faq-plus">+</span></button>
-    <div class="faq-body">Verschreibungspflichtige GLP-1-Medikamente wie Semaglutid enthalten synthetische GLP-1-Analoga, die direkt in den Hormonhaushalt eingreifen, und werden in der Regel als Injektion unter ärztlicher Aufsicht verabreicht. Sie sind für die Behandlung von Typ-2-Diabetes oder starkem Übergewicht zugelassen und können erhebliche Nebenwirkungen haben. VitaGLP ist ein Nahrungsergänzungsmittel — kein Arzneimittel — und enthält natürliche Inhaltsstoffe, die die körpereigene GLP-1-Aktivität unterstützen sollen. Es ist rezeptfrei, ohne Injektion und ohne die bekannten Nebenwirkungen verschreibungspflichtiger Präparate.</div>
+    <div class="faq-body">Verschreibungspflichtige GLP-1-Medikamente wie Semaglutid enthalten synthetische GLP-1-Analoga, die direkt in den Hormonhaushalt eingreifen, und werden in der Regel als Injektion unter ärztlicher Aufsicht verabreicht. Sie sind für die Behandlung von Typ-2-Diabetes oder starkem Übergewicht zugelassen und können erhebliche Nebenwirkungen haben. VitaGLP ist ein Nahrungsergänzungsmittel, kein Arzneimittel und enthält natürliche Inhaltsstoffe, die die körpereigene GLP-1-Aktivität unterstützen sollen. Es ist rezeptfrei, ohne Injektion und ohne die bekannten Nebenwirkungen verschreibungspflichtiger Präparate.</div>
   </div>
 
   <div class="faq-item">
     <button class="faq-btn" onclick="toggleFaq(this)">Wie schnell sind erste Ergebnisse zu erwarten?<span class="faq-plus">+</span></button>
-    <div class="faq-body">Die meisten Nutzer berichten von ersten spürbaren Veränderungen — insbesondere einem reduzierten Hungergefühl — nach zwei bis vier Wochen regelmäßiger Einnahme. Für messbare Gewichtsveränderungen empfehlen die meisten Nutzer eine Einnahmedauer von mindestens acht bis zwölf Wochen in Kombination mit einer ausgewogenen Ernährung. Individuelle Ergebnisse variieren je nach Ausgangslage, Ernährungsgewohnheiten und körperlicher Aktivität. Die 30-Tage-Garantie gibt Ihnen ausreichend Zeit, die Wirkung zu beurteilen — ohne Risiko.</div>
+    <div class="faq-body">Die meisten Nutzer berichten von ersten spürbaren Veränderungen, insbesondere einem reduzierten Hungergefühl, nach zwei bis vier Wochen regelmäßiger Einnahme. Für messbare Gewichtsveränderungen empfehlen die meisten Nutzer eine Einnahmedauer von mindestens acht bis zwölf Wochen in Kombination mit einer ausgewogenen Ernährung. Individuelle Ergebnisse variieren je nach Ausgangslage, Ernährungsgewohnheiten und körperlicher Aktivität. Die 30-Tage-Garantie gibt Ihnen ausreichend Zeit, die Wirkung zu beurteilen, ohne Risiko.</div>
   </div>
 
   <div class="faq-item">
@@ -1299,12 +1358,12 @@ footer {
 
   <div class="faq-item">
     <button class="faq-btn" onclick="toggleFaq(this)">Was ist, wenn VitaGLP bei mir nicht wirkt?<span class="faq-plus">+</span></button>
-    <div class="faq-body">VitaGLP bietet eine bedingungslose 30-Tage-Geld-zurück-Garantie. Wenn Sie innerhalb der ersten 30 Tage nicht zufrieden sind, erhalten Sie eine vollständige Rückerstattung — ohne Fragen, ohne Formulare, ohne Bedingungen. Das ist das einzige Produkt in unserem Test, das eine solche Garantie anbietet. Kontaktieren Sie einfach den Kundenservice und Sie erhalten Ihr Geld zurück. Das Risiko liegt vollständig beim Hersteller, nicht bei Ihnen.</div>
+    <div class="faq-body">VitaGLP bietet eine bedingungslose 30-Tage-Geld-zurück-Garantie. Wenn Sie innerhalb der ersten 30 Tage nicht zufrieden sind, erhalten Sie eine vollständige Rückerstattung, ohne Fragen, ohne Formulare, ohne Bedingungen. Das ist das einzige Produkt in unserem Test, das eine solche Garantie anbietet. Kontaktieren Sie einfach den Kundenservice und Sie erhalten Ihr Geld zurück. Das Risiko liegt vollständig beim Hersteller, nicht bei Ihnen.</div>
   </div>
 
   <div class="faq-item">
     <button class="faq-btn" onclick="toggleFaq(this)">Warum haben die meisten der 20+ getesteten Produkte nicht bestanden?<span class="faq-plus">+</span></button>
-    <div class="faq-body">Die häufigsten Gründe: zu geringe Wirkstoffdosierungen, schlechte Bioverfügbarkeit, versteckte proprietäre Mischungen ohne Mengenangaben oder konsistent negative Kundenerfahrungen. Wir haben diese Produkte nicht aufgelistet, weil wir sie nicht weiterempfehlen können — und weil wir das Vertrauen unserer Leser nicht durch Empfehlungen gefährden möchten, hinter denen wir nicht stehen können.</div>
+    <div class="faq-body">Die häufigsten Gründe: zu geringe Wirkstoffdosierungen, schlechte Bioverfügbarkeit, versteckte proprietäre Mischungen ohne Mengenangaben oder konsistent negative Kundenerfahrungen. Wir haben diese Produkte nicht aufgelistet, weil wir sie nicht weiterempfehlen können und weil wir das Vertrauen unserer Leser nicht durch Empfehlungen gefährden möchten, hinter denen wir nicht stehen können.</div>
   </div>
 </div>
 
@@ -1323,21 +1382,21 @@ footer {
 <script>
 // ── Dynamic H1 ──
 const H1 = {
-  // H1 variants — map ?h1= param to headline + subheadline
+  // H1 variants, map ?h1= param to headline + subheadline
   // Format: [h1, sub]
-  vita:        ['Warum VitaGLP alle anderen GLP-1-Supplemente schlägt — <em>wir haben über 20 davon 6 Monate lang getestet.</em>', 'Wir haben außerdem einen Sonderrabatt und eine 30-tägige Risikofreiheit für unsere Leser ausgehandelt. Lesen Sie bis zum Ende.'],
-  vitaglp:     ['Warum VitaGLP alle anderen GLP-1-Supplemente schlägt — <em>wir haben über 20 davon 6 Monate lang getestet.</em>', 'Wir haben außerdem einen Sonderrabatt und eine 30-tägige Risikofreiheit für unsere Leser ausgehandelt. Lesen Sie bis zum Ende.'],
-  h1:          ['Warum VitaGLP alle anderen GLP-1-Supplemente schlägt — <em>wir haben über 20 davon 6 Monate lang getestet.</em>', 'Wir haben außerdem einen Sonderrabatt und eine 30-tägige Risikofreiheit für unsere Leser ausgehandelt. Lesen Sie bis zum Ende.'],
-  h2:          ['Wir haben alle in Deutschland erhältlichen GLP-1-Supplemente getestet — nur 3 haben wirklich funktioniert, und VitaGLP kam auf Platz 1.', 'Lesen Sie bis zum Ende, um einen Sonderrabatt und 30 Tage Risikofreiheit freizuschalten.'],
-  h3:          ['Unbedingt lesen, bevor Sie VitaGLP kaufen — <em>ist es wirklich den Hype wert?</em>', 'Wir haben außerdem einen Sonderrabatt und 30 Tage Risikofreiheit für unsere Leser ausgehandelt. Lesen Sie bis zum Ende.'],
-  h4:          ['Nicht sicher bei VitaGLP? <em>Lesen Sie das — es beantwortet alle Ihre Fragen.</em>', 'Lesen Sie bis zum Ende, um einen exklusiven Sonderrabatt und 30 Tage Risikofreiheit freizuschalten.'],
-  kaufen:      ['Unbedingt lesen, bevor Sie VitaGLP kaufen — <em>ist es wirklich den Hype wert?</em>', 'Wir haben außerdem einen Sonderrabatt und 30 Tage Risikofreiheit für unsere Leser ausgehandelt. Lesen Sie bis zum Ende.'],
-  erfahrungen: ['VitaGLP 2026: Was Nutzer wirklich erleben — <em>und was unser 6-monatiger Test ergeben hat.</em>', 'Lesen Sie bis zum Ende, um einen exklusiven Sonderrabatt freizuschalten.'],
-  test:        ['Wir haben alle in Deutschland erhältlichen GLP-1-Supplemente getestet — nur 3 haben wirklich funktioniert, und VitaGLP kam auf Platz 1.', 'Lesen Sie bis zum Ende, um einen Sonderrabatt und 30 Tage Risikofreiheit freizuschalten.'],
-  vergleich:   ['VitaGLP vs. alle Alternativen — <em>unser unabhängiger Test 2026 gibt die endgültige Antwort.</em>', 'Wir haben außerdem einen Sonderrabatt und eine 30-tägige Risikofreiheit für unsere Leser ausgehandelt.'],
-  bewertung:   ['Nicht sicher bei VitaGLP? <em>Lesen Sie das — es beantwortet alle Ihre Fragen.</em>', 'Lesen Sie bis zum Ende, um einen exklusiven Sonderrabatt und 30 Tage Risikofreiheit freizuschalten.'],
+  vita:        ['Warum VitaGLP alle anderen GLP-1-Supplemente schlägt, <em>wir haben über 20 davon 6 Monate lang getestet.</em>', 'Wir haben außerdem einen Sonderrabatt und eine 30-tägige Risikofreiheit für unsere Leser ausgehandelt. Lesen Sie bis zum Ende.'],
+  vitaglp:     ['Warum VitaGLP alle anderen GLP-1-Supplemente schlägt, <em>wir haben über 20 davon 6 Monate lang getestet.</em>', 'Wir haben außerdem einen Sonderrabatt und eine 30-tägige Risikofreiheit für unsere Leser ausgehandelt. Lesen Sie bis zum Ende.'],
+  h1:          ['Warum VitaGLP alle anderen GLP-1-Supplemente schlägt, <em>wir haben über 20 davon 6 Monate lang getestet.</em>', 'Wir haben außerdem einen Sonderrabatt und eine 30-tägige Risikofreiheit für unsere Leser ausgehandelt. Lesen Sie bis zum Ende.'],
+  h2:          ['Wir haben alle in Deutschland erhältlichen GLP-1-Supplemente getestet, nur 3 haben wirklich funktioniert, und VitaGLP kam auf Platz 1.', 'Lesen Sie bis zum Ende, um einen Sonderrabatt und 30 Tage Risikofreiheit freizuschalten.'],
+  h3:          ['Unbedingt lesen, bevor Sie VitaGLP kaufen: <em>ist es wirklich den Hype wert?</em>', 'Wir haben außerdem einen Sonderrabatt und 30 Tage Risikofreiheit für unsere Leser ausgehandelt. Lesen Sie bis zum Ende.'],
+  h4:          ['Nicht sicher bei VitaGLP? <em>Lesen Sie das. Es beantwortet alle Ihre Fragen.</em>', 'Lesen Sie bis zum Ende, um einen exklusiven Sonderrabatt und 30 Tage Risikofreiheit freizuschalten.'],
+  kaufen:      ['Unbedingt lesen, bevor Sie VitaGLP kaufen: <em>ist es wirklich den Hype wert?</em>', 'Wir haben außerdem einen Sonderrabatt und 30 Tage Risikofreiheit für unsere Leser ausgehandelt. Lesen Sie bis zum Ende.'],
+  erfahrungen: ['VitaGLP 2026: Was Nutzer wirklich erleben, <em>und was unser 6-monatiger Test ergeben hat.</em>', 'Lesen Sie bis zum Ende, um einen exklusiven Sonderrabatt freizuschalten.'],
+  test:        ['Wir haben alle in Deutschland erhältlichen GLP-1-Supplemente getestet, nur 3 haben wirklich funktioniert, und VitaGLP kam auf Platz 1.', 'Lesen Sie bis zum Ende, um einen Sonderrabatt und 30 Tage Risikofreiheit freizuschalten.'],
+  vergleich:   ['VitaGLP vs. alle Alternativen: <em>unser unabhängiger Test 2026 gibt die endgültige Antwort.</em>', 'Wir haben außerdem einen Sonderrabatt und eine 30-tägige Risikofreiheit für unsere Leser ausgehandelt.'],
+  bewertung:   ['Nicht sicher bei VitaGLP? <em>Lesen Sie das. Es beantwortet alle Ihre Fragen.</em>', 'Lesen Sie bis zum Ende, um einen exklusiven Sonderrabatt und 30 Tage Risikofreiheit freizuschalten.'],
   glp1:        ['Die meisten GLP-1-Supplemente sind Geldverschwendung. <em>Hier sind die drei, die wirklich funktionieren.</em>', 'Wir haben außerdem einen Sonderrabatt und eine 30-tägige Risikofreiheit für unsere Leser ausgehandelt.'],
-  abnehmen:    ['GLP-1-Supplemente zum Abnehmen 2026 — <em>welches wirklich funktioniert und welche Sie meiden sollten.</em>', 'Lesen Sie bis zum Ende, um einen exklusiven Sonderrabatt freizuschalten.'],
+  abnehmen:    ['GLP-1-Supplemente zum Abnehmen 2026, <em>welches wirklich funktioniert und welche Sie meiden sollten.</em>', 'Lesen Sie bis zum Ende, um einen exklusiven Sonderrabatt freizuschalten.'],
   // legacy single-string keys kept for backward compat:
 };
 (function(){
