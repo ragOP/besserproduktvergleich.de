@@ -22,6 +22,7 @@
   --text:        #2c2c2c;
   --muted:       #6b7280;
   --border:      #e2e8f0;
+  --yellow-light:#fef3c7;
   --bg:          #f8fafc;
   --white:       #ffffff;
   --max:         740px;
@@ -122,6 +123,13 @@ h1 em {
   max-width: 620px;
   margin-bottom: 28px;
   line-height: 1.7;
+}
+.lead-highlight {
+  background: linear-gradient(transparent 55%, var(--yellow-light) 55%);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  font-weight: 700;
+  color: var(--text);
 }
 
 /* ─── BYLINE ─── */
@@ -807,7 +815,7 @@ footer {
   <div class="eyebrow">Unabhängiger Test 2026 &nbsp;·&nbsp; GLP-1 Nahrungsergänzungsmittel</div>
 
   <h1 id="page-h1">Warum VitaGLP alle anderen GLP-1-Supplemente schlägt — <em>wir haben über 20 davon 6 Monate lang getestet.</em></h1>
-  <p id="page-sub" class="lead">Wir haben außerdem einen Sonderrabatt und eine 30-tägige Risikofreiheit für unsere Leser ausgehandelt. Lesen Sie bis zum Ende.</p>
+  <p id="page-sub" class="lead">Wir haben außerdem einen Sonderrabatt und eine <span class="lead-highlight">30-tägige Risikofreiheit</span> für unsere Leser ausgehandelt. Lesen Sie bis zum Ende.</p>
 
   <div class="byline">
     <div class="avatar">AW</div>
@@ -1252,18 +1260,18 @@ footer {
 const H1 = {
   // H1 variants — map ?h1= param to headline + subheadline
   // Format: [h1, sub]
-  vita:        ['Warum VitaGLP alle anderen GLP-1-Supplemente schlägt — <em>wir haben über 20 davon 6 Monate lang getestet.</em>', 'Wir haben außerdem einen Sonderrabatt und eine 30-tägige Risikofreiheit für unsere Leser ausgehandelt. Lesen Sie bis zum Ende.'],
-  vitaglp:     ['Warum VitaGLP alle anderen GLP-1-Supplemente schlägt — <em>wir haben über 20 davon 6 Monate lang getestet.</em>', 'Wir haben außerdem einen Sonderrabatt und eine 30-tägige Risikofreiheit für unsere Leser ausgehandelt. Lesen Sie bis zum Ende.'],
-  h1:          ['Warum VitaGLP alle anderen GLP-1-Supplemente schlägt — <em>wir haben über 20 davon 6 Monate lang getestet.</em>', 'Wir haben außerdem einen Sonderrabatt und eine 30-tägige Risikofreiheit für unsere Leser ausgehandelt. Lesen Sie bis zum Ende.'],
-  h2:          ['Wir haben alle in Deutschland erhältlichen GLP-1-Supplemente getestet — nur 3 haben wirklich funktioniert, und VitaGLP kam auf Platz 1.', 'Lesen Sie bis zum Ende, um einen Sonderrabatt und 30 Tage Risikofreiheit freizuschalten.'],
-  h3:          ['Unbedingt lesen, bevor Sie VitaGLP kaufen — <em>ist es wirklich den Hype wert?</em>', 'Wir haben außerdem einen Sonderrabatt und 30 Tage Risikofreiheit für unsere Leser ausgehandelt. Lesen Sie bis zum Ende.'],
-  h4:          ['Nicht sicher bei VitaGLP? <em>Lesen Sie das — es beantwortet alle Ihre Fragen.</em>', 'Lesen Sie bis zum Ende, um einen exklusiven Sonderrabatt und 30 Tage Risikofreiheit freizuschalten.'],
-  kaufen:      ['Unbedingt lesen, bevor Sie VitaGLP kaufen — <em>ist es wirklich den Hype wert?</em>', 'Wir haben außerdem einen Sonderrabatt und 30 Tage Risikofreiheit für unsere Leser ausgehandelt. Lesen Sie bis zum Ende.'],
+  vita:        ['Warum VitaGLP alle anderen GLP-1-Supplemente schlägt — <em>wir haben über 20 davon 6 Monate lang getestet.</em>', 'Wir haben außerdem einen Sonderrabatt und eine <span class="lead-highlight">30-tägige Risikofreiheit</span> für unsere Leser ausgehandelt. Lesen Sie bis zum Ende.'],
+  vitaglp:     ['Warum VitaGLP alle anderen GLP-1-Supplemente schlägt — <em>wir haben über 20 davon 6 Monate lang getestet.</em>', 'Wir haben außerdem einen Sonderrabatt und eine <span class="lead-highlight">30-tägige Risikofreiheit</span> für unsere Leser ausgehandelt. Lesen Sie bis zum Ende.'],
+  h1:          ['Warum VitaGLP alle anderen GLP-1-Supplemente schlägt — <em>wir haben über 20 davon 6 Monate lang getestet.</em>', 'Wir haben außerdem einen Sonderrabatt und eine <span class="lead-highlight">30-tägige Risikofreiheit</span> für unsere Leser ausgehandelt. Lesen Sie bis zum Ende.'],
+  h2:          ['Wir haben alle in Deutschland erhältlichen GLP-1-Supplemente getestet — nur 3 haben wirklich funktioniert, und VitaGLP kam auf Platz 1.', 'Lesen Sie bis zum Ende, um einen Sonderrabatt und <span class="lead-highlight">30 Tage Risikofreiheit</span> freizuschalten.'],
+  h3:          ['Unbedingt lesen, bevor Sie VitaGLP kaufen — <em>ist es wirklich den Hype wert?</em>', 'Wir haben außerdem einen Sonderrabatt und <span class="lead-highlight">30 Tage Risikofreiheit</span> für unsere Leser ausgehandelt. Lesen Sie bis zum Ende.'],
+  h4:          ['Nicht sicher bei VitaGLP? <em>Lesen Sie das — es beantwortet alle Ihre Fragen.</em>', 'Lesen Sie bis zum Ende, um einen exklusiven Sonderrabatt und <span class="lead-highlight">30 Tage Risikofreiheit</span> freizuschalten.'],
+  kaufen:      ['Unbedingt lesen, bevor Sie VitaGLP kaufen — <em>ist es wirklich den Hype wert?</em>', 'Wir haben außerdem einen Sonderrabatt und <span class="lead-highlight">30 Tage Risikofreiheit</span> für unsere Leser ausgehandelt. Lesen Sie bis zum Ende.'],
   erfahrungen: ['VitaGLP 2026: Was Nutzer wirklich erleben — <em>und was unser 6-monatiger Test ergeben hat.</em>', 'Lesen Sie bis zum Ende, um einen exklusiven Sonderrabatt freizuschalten.'],
-  test:        ['Wir haben alle in Deutschland erhältlichen GLP-1-Supplemente getestet — nur 3 haben wirklich funktioniert, und VitaGLP kam auf Platz 1.', 'Lesen Sie bis zum Ende, um einen Sonderrabatt und 30 Tage Risikofreiheit freizuschalten.'],
-  vergleich:   ['VitaGLP vs. alle Alternativen — <em>unser unabhängiger Test 2026 gibt die endgültige Antwort.</em>', 'Wir haben außerdem einen Sonderrabatt und eine 30-tägige Risikofreiheit für unsere Leser ausgehandelt.'],
-  bewertung:   ['Nicht sicher bei VitaGLP? <em>Lesen Sie das — es beantwortet alle Ihre Fragen.</em>', 'Lesen Sie bis zum Ende, um einen exklusiven Sonderrabatt und 30 Tage Risikofreiheit freizuschalten.'],
-  glp1:        ['Die meisten GLP-1-Supplemente sind Geldverschwendung. <em>Hier sind die drei, die wirklich funktionieren.</em>', 'Wir haben außerdem einen Sonderrabatt und eine 30-tägige Risikofreiheit für unsere Leser ausgehandelt.'],
+  test:        ['Wir haben alle in Deutschland erhältlichen GLP-1-Supplemente getestet — nur 3 haben wirklich funktioniert, und VitaGLP kam auf Platz 1.', 'Lesen Sie bis zum Ende, um einen Sonderrabatt und <span class="lead-highlight">30 Tage Risikofreiheit</span> freizuschalten.'],
+  vergleich:   ['VitaGLP vs. alle Alternativen — <em>unser unabhängiger Test 2026 gibt die endgültige Antwort.</em>', 'Wir haben außerdem einen Sonderrabatt und eine <span class="lead-highlight">30-tägige Risikofreiheit</span> für unsere Leser ausgehandelt.'],
+  bewertung:   ['Nicht sicher bei VitaGLP? <em>Lesen Sie das — es beantwortet alle Ihre Fragen.</em>', 'Lesen Sie bis zum Ende, um einen exklusiven Sonderrabatt und <span class="lead-highlight">30 Tage Risikofreiheit</span> freizuschalten.'],
+  glp1:        ['Die meisten GLP-1-Supplemente sind Geldverschwendung. <em>Hier sind die drei, die wirklich funktionieren.</em>', 'Wir haben außerdem einen Sonderrabatt und eine <span class="lead-highlight">30-tägige Risikofreiheit</span> für unsere Leser ausgehandelt.'],
   abnehmen:    ['GLP-1-Supplemente zum Abnehmen 2026 — <em>welches wirklich funktioniert und welche Sie meiden sollten.</em>', 'Lesen Sie bis zum Ende, um einen exklusiven Sonderrabatt freizuschalten.'],
   // legacy single-string keys kept for backward compat:
 };
