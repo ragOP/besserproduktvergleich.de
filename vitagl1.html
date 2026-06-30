@@ -20,6 +20,7 @@
   --green:       #1a8a4a;
   --green-light: #edf7f2;
   --gold:        #f0a500;
+  --yellow-light:#fef3c7;
   --red:         #c0392b;
   --text:        #2c2c2c;
   --muted:       #6b7280;
@@ -119,15 +120,8 @@ header {
   font-size: 11px; font-weight: 700;
   letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--blue-mid);
-  display: flex; align-items: center; gap: 10px;
   margin-bottom: 16px;
   max-width: 100%;
-  flex-wrap: wrap;
-}
-.eyebrow::before {
-  content: ""; display: block;
-  width: 24px; height: 3px;
-  background: var(--blue-mid); border-radius: 2px;
 }
 
 h1 {
@@ -151,6 +145,16 @@ h1 em {
   margin-bottom: 24px;
   line-height: 1.65;
   padding-bottom: 4px;
+}
+.lead-highlight,
+.title-highlight {
+  background: linear-gradient(transparent 55%, var(--yellow-light) 55%);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.lead-highlight {
+  font-weight: 700;
+  color: var(--text);
 }
 
 /* ─── BYLINE ─── */
@@ -258,6 +262,10 @@ h1 em {
   color: #3a3a3a; margin-bottom: 20px;
 }
 .body-section p:last-child { margin-bottom: 0; }
+
+.body-cta {
+  margin-bottom: 28px;
+}
 
 .body-section h2 {
   font-size: 22px; font-weight: 800;
@@ -507,6 +515,12 @@ h1 em {
 }
 .pc-col-head.pros { color: var(--green); border-right: 1px solid var(--border); }
 .pc-col-head.cons { color: #d97706; }
+.pc-col > .pc-col-head {
+  padding: 11px 18px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+.pc-col > .pc-col-head.cons { border-right: none; }
 .pc-table-body {
   display: grid; grid-template-columns: 1fr 1fr;
 }
@@ -733,15 +747,33 @@ h1 em {
   font-style: italic; color: #8ab4e8;
   font-family: 'Playfair Display', serif;
 }
-.final-cta-sub { font-size: 15px; color: #8ab4e8; margin-bottom: 28px; }
+.final-cta-sub { font-size: 15px; color: #8ab4e8; margin-bottom: 20px; }
+.final-product-img {
+  width: 148px; height: 148px;
+  margin: 0 auto 20px;
+  background: #fff;
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+.final-product-img img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+}
+.final-score-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
 .score-chip {
   display: inline-flex; align-items: center; gap: 12px;
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.15);
   border-radius: 10px;
   padding: 12px 20px;
-  margin-bottom: 28px;
 }
+.final-cta .score-chip { margin-bottom: 0; }
 .chip-score { font-size: 36px; font-weight: 800; color: #fff; line-height: 1; }
 .chip-info { text-align: left; }
 .chip-brand { font-size: 14px; font-weight: 700; color: #fff; }
@@ -752,10 +784,15 @@ h1 em {
   max-width: 100%; margin: 0 auto;
   text-align: center;
 }
+.final-cta .btn-cta {
+  width: 100%;
+  margin-bottom: 0;
+}
 .final-trust {
   font-size: 13px; color: #7aa3d4;
-  margin-top: 16px;
-  display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;
+  margin-top: 10px;
+  display: flex; justify-content: center; align-items: center;
+  gap: 10px 16px; flex-wrap: wrap;
 }
 .final-trust span { display: flex; align-items: center; gap: 5px; }
 
@@ -802,6 +839,34 @@ h1 em {
 .faq-item.open .faq-body { display: block; }
 .faq-item.open .faq-plus { transform: rotate(45deg); }
 
+/* ─── STICKY FOOTER BAR ─── */
+.sticky-bar {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 200;
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -3px 14px rgba(16,40,70,.08);
+  transform: translateY(110%);
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+.sticky-bar.show {
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.sticky-bar-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 10px 16px;
+}
+.sticky-bar-cta {
+  width: 100%;
+  margin: 0;
+  padding: 14px 18px;
+  font-size: clamp(13px, 3.4vw, 16px);
+}
+
 /* ─── FOOTER ─── */
 footer {
   background: var(--bg);
@@ -816,6 +881,46 @@ footer {
 }
 .footer-links a { font-size: 13px; color: var(--muted); }
 .footer-links a:hover { color: var(--blue-mid); }
+.footer-winner {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 18px;
+  margin-bottom: 24px;
+  text-align: left;
+  max-width: 100%;
+}
+.footer-winner-img {
+  width: 64px; height: 64px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: #fff;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.footer-winner-img img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+}
+.footer-winner-label {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--green); margin-bottom: 3px;
+}
+.footer-winner-name {
+  font-size: 15px; font-weight: 800;
+  color: #0f172a; line-height: 1.2;
+}
+.footer-winner-score {
+  font-size: 13px; color: #475569; margin-top: 4px;
+}
+.footer-winner-rating {
+  color: var(--green);
+  font-weight: 800;
+}
 .footer-copy { font-size: 12px; color: #aaa; margin-bottom: 10px; }
 .footer-disc {
   font-size: 12px; color: #bbb;
@@ -823,30 +928,46 @@ footer {
   line-height: 1.65;
 }
 
-/* ─── FEATURE TABLE (highlight box) ─── */
-.feat-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 12px;
+/* ─── HIGHLIGHT FEATURES (highlight box) ─── */
+.highlight-feats {
+  list-style: none;
+  margin-top: 4px;
 }
-.feat-table tr { border-bottom: 1px solid var(--border); }
-.feat-table tr:last-child { border-bottom: none; }
-.feat-table td {
-  padding: 11px 14px;
-  font-size: 14px; line-height: 1.55; color: #333;
-  vertical-align: top;
+.highlight-feat {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
 }
-.feat-table td:first-child {
-  width: 28px; text-align: center;
-  color: var(--green); font-weight: 800; font-size: 15px;
-  padding-right: 4px;
+.highlight-feat:first-child { padding-top: 0; }
+.highlight-feat:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
 }
-.feat-table td:nth-child(2) {
-  font-weight: 700; color: #111;
-  width: 200px; white-space: nowrap;
+.highlight-feat-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 6px;
 }
-.feat-table td:last-child { color: #555; }
-.feat-table tr:nth-child(odd) td { background: #fafbfd; }
+.highlight-feat-check {
+  color: var(--green);
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 1.35;
+  flex-shrink: 0;
+}
+.highlight-feat-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111;
+  line-height: 1.35;
+}
+.highlight-feat-desc {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #555;
+  margin: 0;
+  padding-left: 23px;
+}
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 600px) {
@@ -894,15 +1015,23 @@ footer {
   .testi-grid { grid-template-columns: 1fr; }
   .criteria-grid { grid-template-columns: 1fr; }
   .byline-pills { display: none; }
-  .feat-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  .feat-table td:nth-child(2) { white-space: normal; width: auto; min-width: 0; }
+  .highlight-box { padding: 18px 16px; margin: 24px 0; }
+  .highlight-feat { padding: 12px 0; }
+  .highlight-feat-title { font-size: 14px; }
+  .highlight-feat-desc { font-size: 13px; padding-left: 23px; }
   .editor-section { padding: 0 16px 40px; }
   .editor-box-body { padding: 22px 18px 20px; }
   .final-cta { padding: 44px 16px; }
+  .final-product-img { width: 120px; height: 120px; margin-bottom: 16px; }
+  .trust-row { gap: 12px; }
+  .final-trust {
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 10px;
+    font-size: 12px;
+  }
   .faq-section { padding: 0 16px 48px; }
   .note-on-links { padding: 0 16px; margin-bottom: 36px; }
-  .trust-row { gap: 12px; }
-  .final-trust { gap: 12px; font-size: 12px; }
   .section-note { padding: 0 4px; overflow-wrap: anywhere; }
 }
 </style>
@@ -911,7 +1040,7 @@ footer {
 
 <!-- TOP BAR -->
 <div class="topbar">
-  Vergleich wird regelmäßig aktualisiert · Zuletzt geprüft: <strong>Juni 2026</strong> · Preise können sich ändern
+  Vergleich wird regelmäßig aktualisiert · Zuletzt geprüft: <strong>Juni 2026</strong> 
 </div>
 
 <!-- HEADER -->
@@ -931,7 +1060,7 @@ footer {
   <div class="eyebrow">Unabhängiger Test 2026 · GLP-1 Nahrungsergänzungsmittel</div>
 
   <h1 id="page-h1">Warum VitaGLP alle anderen GLP-1-Supplemente schlägt, <em>wir haben über 20 davon 6 Monate lang getestet.</em></h1>
-  <p id="page-sub" class="lead">Wir haben außerdem einen Sonderrabatt und eine 30-tägige Risikofreiheit für unsere Leser ausgehandelt. Lesen Sie bis zum Ende.</p>
+  <p id="page-sub" class="lead">Wir haben außerdem einen Sonderrabatt und eine <span class="lead-highlight">30-tägige Risikofreiheit</span> für unsere Leser ausgehandelt. Lesen Sie bis zum Ende.</p>
 
   <div class="byline">
     <div class="avatar"><img src="images/anna-weber.webp" alt="Anna Weber" width="40" height="40" loading="lazy"></div>
@@ -985,7 +1114,14 @@ footer {
 <!-- BODY: INVESTIGATION NARRATIVE -->
 <div class="body-section">
 
-  <h2>Warum wir diesen Test gemacht haben</h2>
+  <div class="body-cta" id="body-cta">
+    <a href="REPLACE_WITH_YOUR_AFFILIATE_LINK" class="btn-green">
+      Jetzt VitaGLP Sonderrabatt sichern
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+
+  <h2><span class="title-highlight">Warum wir diesen Test gemacht haben</span></h2>
 
   <p>Der deutsche Markt für GLP-1-Nahrungsergänzungsmittel ist in den letzten zwei Jahren explodiert. Jede Woche erscheinen neue Produkte, jedes mit denselben Versprechen: mehr Sättigung, weniger Hunger, kontrolliertes Gewicht, ohne Rezept, ohne Arzttermin, ohne die bekannten Nebenwirkungen verschreibungspflichtiger GLP-1-Medikamente.</p>
 
@@ -995,7 +1131,7 @@ footer {
 
   <div class="pull-quote">Sechs Monate. Über 20 Produkte. Drei haben bestanden. Eines hat alle anderen weit hinter sich gelassen. Hier ist, was wir gefunden haben.</div>
 
-  <h2>Was wir getestet haben und wie</h2>
+  <h2><span class="title-highlight">Was wir getestet haben und wie</span></h2>
 
   <p>Wir haben über 20 GLP-1-Nahrungsergänzungsmittel auf dem deutschen Markt ausgewählt und über sechs Monate getestet. Jedes Produkt wurde blind von Testpersonen eingenommen, sie wussten nicht, welches Produkt sie testeten. Parallel dazu haben wir jede Formel unabhängig analysiert: Dosierungen, Bioverfügbarkeit, Transparenz der Inhaltsstoffe, klinische Evidenz.</p>
 
@@ -1011,7 +1147,7 @@ footer {
     </div>
   </div>
 
-  <h2>Was wir herausgefunden haben und warum die meisten Produkte scheitern</h2>
+  <h2><span class="title-highlight">Was wir herausgefunden haben und warum die meisten Produkte scheitern</span></h2>
 
   <p>Von über 20 getesteten Produkten sind die meisten in mindestens einem entscheidenden Bereich durchgefallen. Die häufigsten Probleme:</p>
 
@@ -1024,44 +1160,56 @@ footer {
 
   <p>Die drei Produkte, die unseren Test bestanden haben, hatten eines gemeinsam: Sie haben keine dieser Abkürzungen genommen. Transparente Formeln, klinisch relevante Dosierungen, nachgewiesene Bioverfügbarkeit. Und eines dieser drei hat in jeder einzelnen Kategorie besser abgeschnitten als die anderen.</p>
 
-  <h2>Warum VitaGLP alle anderen weit hinter sich gelassen hat</h2>
+  <h2><span class="title-highlight">Warum VitaGLP alle anderen weit hinter sich gelassen hat</span></h2>
 
   <p>VitaGLP ist kein Marktführer mit dem größten Marketingbudget. Was es ist: das Produkt mit der stärksten Formel, der höchsten Transparenz und dem besten Preis-Leistungs-Verhältnis in unserem gesamten Test. Die Wirkstoffdosierung liegt messbar über der Konkurrenz, die Bioverfügbarkeit ist durch patentierte Aufnahmetechnologie deutlich höher und als einziges Produkt bietet es eine bedingungslose 30-Tage-Geld-zurück-Garantie.</p>
 
   <div class="highlight-box">
     <div class="highlight-box-label">✓ Was VitaGLP von allen anderen unterscheidet</div>
-    <table class="feat-table">
-      <tr>
-        <td>✓</td>
-        <td>Klinisch relevante Dosierung</td>
-        <td>Wirkstoffmengen in einem Bereich, der in unabhängigen Studien tatsächlich Wirkung gezeigt hat, nicht nur Spurendosen.</td>
-      </tr>
-      <tr>
-        <td>✓</td>
-        <td>Patentierte Aufnahmetechnologie</td>
-        <td>Höhere Bioverfügbarkeit sorgt dafür, dass mehr Wirkstoff tatsächlich im Körper ankommt und wirkt.</td>
-      </tr>
-      <tr>
-        <td>✓</td>
-        <td>Vollständige Formel-Transparenz</td>
-        <td>Jeder Wirkstoff, jede Dosierung klar ausgewiesen. Keine proprietären Mischungen, keine versteckten Mengen.</td>
-      </tr>
-      <tr>
-        <td>✓</td>
-        <td>Hergestellt in Deutschland</td>
-        <td>GMP-zertifizierte Produktion unter deutschen Qualitätsstandards. Keine Importe aus Drittländern.</td>
-      </tr>
-      <tr>
-        <td>✓</td>
-        <td>Bedingungslose 30-Tage-Garantie</td>
-        <td>Das einzige Produkt im Test mit vollständiger Rückerstattung ohne Fragen. Das Risiko liegt beim Hersteller, nicht bei Ihnen.</td>
-      </tr>
-      <tr>
-        <td>✓</td>
-        <td>Sonderrabatt für Leser</td>
-        <td>Exklusiver Rabatt für Leser von Besser Produktvergleich, nur über den offiziellen Shop erhältlich.</td>
-      </tr>
-    </table>
+    <ul class="highlight-feats">
+      <li class="highlight-feat">
+        <div class="highlight-feat-head">
+          <span class="highlight-feat-check">✓</span>
+          <div class="highlight-feat-title">Klinisch relevante Dosierung</div>
+        </div>
+        <p class="highlight-feat-desc">Wirkstoffmengen in einem Bereich, der in unabhängigen Studien tatsächlich Wirkung gezeigt hat, nicht nur Spurendosen.</p>
+      </li>
+      <li class="highlight-feat">
+        <div class="highlight-feat-head">
+          <span class="highlight-feat-check">✓</span>
+          <div class="highlight-feat-title">Patentierte Aufnahmetechnologie</div>
+        </div>
+        <p class="highlight-feat-desc">Höhere Bioverfügbarkeit sorgt dafür, dass mehr Wirkstoff tatsächlich im Körper ankommt und wirkt.</p>
+      </li>
+      <li class="highlight-feat">
+        <div class="highlight-feat-head">
+          <span class="highlight-feat-check">✓</span>
+          <div class="highlight-feat-title">Vollständige Formel-Transparenz</div>
+        </div>
+        <p class="highlight-feat-desc">Jeder Wirkstoff, jede Dosierung klar ausgewiesen. Keine proprietären Mischungen, keine versteckten Mengen.</p>
+      </li>
+      <li class="highlight-feat">
+        <div class="highlight-feat-head">
+          <span class="highlight-feat-check">✓</span>
+          <div class="highlight-feat-title">Hergestellt in Deutschland</div>
+        </div>
+        <p class="highlight-feat-desc">GMP-zertifizierte Produktion unter deutschen Qualitätsstandards. Keine Importe aus Drittländern.</p>
+      </li>
+      <li class="highlight-feat">
+        <div class="highlight-feat-head">
+          <span class="highlight-feat-check">✓</span>
+          <div class="highlight-feat-title">Bedingungslose 30-Tage-Garantie</div>
+        </div>
+        <p class="highlight-feat-desc">Das einzige Produkt im Test mit vollständiger Rückerstattung ohne Fragen. Das Risiko liegt beim Hersteller, nicht bei Ihnen.</p>
+      </li>
+      <li class="highlight-feat">
+        <div class="highlight-feat-head">
+          <span class="highlight-feat-check">✓</span>
+          <div class="highlight-feat-title">Sonderrabatt für Leser</div>
+        </div>
+        <p class="highlight-feat-desc">Exklusiver Rabatt für Leser von Besser Produktvergleich, nur über den offiziellen Shop erhältlich.</p>
+      </li>
+    </ul>
   </div>
 
   <p>Individuelle Ergebnisse variieren, und Nahrungsergänzungsmittel ersetzen keine medizinische Behandlung. Aber wenn Sie ein GLP-1-Supplement kaufen möchten und sichergehen wollen, dass Sie nicht Geld für ein Produkt ausgeben, das kaum messbare Wirkung hat, VitaGLP ist nach unserem Test die einzige Wahl, die wir ohne Vorbehalt empfehlen können.</p>
@@ -1070,7 +1218,7 @@ footer {
 
 <!-- COMPARISON -->
 <div class="comparison-section">
-  <h2 class="section-title">Die 3 Produkte, die unseren Test bestanden haben</h2>
+  <h2 class="section-title"><span class="title-highlight">Die 3 Produkte, die unseren Test bestanden haben</span></h2>
   <p class="section-note">Stand: Juni 2026 &nbsp;·&nbsp; Sortiert nach Gesamtbewertung &nbsp;·&nbsp; Die meisten der 20+ getesteten Produkte sind nicht aufgeführt, sie haben unsere Mindestanforderungen nicht erfüllt</p>
 
   <!-- ── CARD 1 ── -->
@@ -1103,7 +1251,6 @@ footer {
     <div class="pc-table">
       <div class="pc-table-head">
         <div class="pc-col-head pros">Vorteile</div>
-        <div class="pc-col-head cons">Hinweise</div>
       </div>
       <div class="pc-table-body">
         <div class="pc-col pros">
@@ -1115,6 +1262,7 @@ footer {
           <div class="pc-item"><span class="pc-icon pro">✓</span><span><strong>Kostenloser Versand</strong>, Diskrete Lieferung innerhalb von 2–3 Werktagen nach ganz Deutschland.</span></div>
         </div>
         <div class="pc-col cons">
+          <div class="pc-col-head cons">Hinweise</div>
           <div class="pc-item"><span class="pc-icon con">!</span><span>Nur online erhältlich, nicht im stationären Handel.</span></div>
           <div class="pc-item"><span class="pc-icon con">!</span><span>Aufgrund hoher Nachfrage kann es gelegentlich zu Lieferverzögerungen kommen.</span></div>
         </div>
@@ -1157,7 +1305,6 @@ footer {
     <div class="pc-table">
       <div class="pc-table-head">
         <div class="pc-col-head pros">Vorteile</div>
-        <div class="pc-col-head cons">Nachteile gegenüber #1</div>
       </div>
       <div class="pc-table-body">
         <div class="pc-col pros">
@@ -1166,6 +1313,7 @@ footer {
           <div class="pc-item"><span class="pc-icon pro">✓</span><span><strong>Regelmäßige Rabattaktionen</strong>, Gelegentlich mit deutlichen Preisnachlässen erhältlich.</span></div>
         </div>
         <div class="pc-col cons">
+          <div class="pc-col-head cons">Nachteile gegenüber #1</div>
           <div class="pc-item"><span class="pc-icon con">!</span><span>Teurer als VitaGLP, trotz messbar niedrigerer Wirkstoffkonzentration.</span></div>
           <div class="pc-item"><span class="pc-icon con">!</span><span>Keine bedingungslose Geld-zurück-Garantie, Rückgabe nur unter eingeschränkten Bedingungen möglich.</span></div>
           <div class="pc-item"><span class="pc-icon con">!</span><span>Bioverfügbarkeit spürbar niedriger als beim Testsieger, weniger Wirkstoff kommt tatsächlich an.</span></div>
@@ -1197,7 +1345,6 @@ footer {
     <div class="pc-table">
       <div class="pc-table-head">
         <div class="pc-col-head pros">Vorteile</div>
-        <div class="pc-col-head cons">Nachteile gegenüber #1</div>
       </div>
       <div class="pc-table-body">
         <div class="pc-col pros">
@@ -1206,6 +1353,7 @@ footer {
           <div class="pc-item"><span class="pc-icon pro">✓</span><span><strong>Breite Verfügbarkeit</strong>, In verschiedenen Online-Shops erhältlich.</span></div>
         </div>
         <div class="pc-col cons">
+          <div class="pc-col-head cons">Nachteile gegenüber #1</div>
           <div class="pc-item"><span class="pc-icon con">!</span><span>Günstigere Rohstoffe, Wirkstoffqualität deutlich unter dem Niveau von VitaGLP.</span></div>
           <div class="pc-item"><span class="pc-icon con">!</span><span>Keine Geld-zurück-Garantie, Kein Rückgaberecht bei Unzufriedenheit.</span></div>
           <div class="pc-item"><span class="pc-icon con">!</span><span>Kundenbewertungen deutlich schlechter, Häufige Berichte über ausbleibende Wirkung nach mehreren Wochen.</span></div>
@@ -1219,7 +1367,7 @@ footer {
 <div class="testi-section">
   <div class="testi-inner">
     <div class="testi-eyebrow">Lesererfahrungen</div>
-    <h2 class="testi-heading">Was unsere Leser nach dem Kauf berichten</h2>
+    <h2 class="testi-heading"><span class="title-highlight">Was unsere Leser nach dem Kauf berichten</span></h2>
     <p class="testi-sub">Eingereicht von verifizierten Käufern &nbsp;·&nbsp; Individuelle Ergebnisse können variieren</p>
 
     <div class="testi-grid">
@@ -1309,7 +1457,10 @@ footer {
     <div class="final-eyebrow">Unser Testsieger</div>
     <h2>VitaGLP · <em>9,4/10</em> in unserem unabhängigen Test</h2>
     <p class="final-cta-sub">Derzeit mit 30 Tage Geld-zurück-Garantie und kostenlosem Versand erhältlich.</p>
-    <div style="display:flex;justify-content:center;margin-bottom:28px;">
+    <div class="final-product-img">
+      <img src="images/vitaglp.png" alt="VitaGLP" width="148" height="148" loading="lazy">
+    </div>
+    <div class="final-score-wrap">
       <div class="score-chip">
         <span class="chip-score">9,4</span>
         <div class="chip-info">
@@ -1375,6 +1526,16 @@ footer {
 
 <!-- FOOTER -->
 <footer>
+  <div class="footer-winner">
+    <div class="footer-winner-img">
+      <img src="images/vitaglp.png" alt="VitaGLP" width="64" height="64" loading="lazy">
+    </div>
+    <div>
+      <div class="footer-winner-label">Unser Testsieger</div>
+      <div class="footer-winner-name">VitaGLP</div>
+      <div class="footer-winner-score">Bewertet mit <span class="footer-winner-rating">9,4/10</span> in unserem unabhängigen Test</div>
+    </div>
+  </div>
   <div class="footer-links">
     <a href="#">Über uns</a>
     <a href="#">Datenschutz</a>
@@ -1385,23 +1546,33 @@ footer {
   <p class="footer-disc">Besser Produktvergleich ist eine unabhängige Verbraucher-Testpublikation. Wir erhalten möglicherweise eine Provision, wenn Sie über Links auf dieser Seite einkaufen. Dies finanziert unseren unabhängigen Testprozess und hat keinen Einfluss auf unsere redaktionellen Bewertungen oder Empfehlungen. Individuelle Ergebnisse können variieren. Diese Seite ist nicht mit einem Arzt, einer Gesundheitsbehörde oder einem Pharmaunternehmen verbunden. Nahrungsergänzungsmittel sind kein Ersatz für eine ausgewogene Ernährung und einen gesunden Lebensstil. Konsultieren Sie bei gesundheitlichen Fragen einen Arzt.</p>
 </footer>
 
+<!-- STICKY FOOTER BAR -->
+<div class="sticky-bar" id="sticky-bar" aria-hidden="true">
+  <div class="sticky-bar-inner">
+    <a href="REPLACE_WITH_YOUR_AFFILIATE_LINK" class="btn-green sticky-bar-cta">
+      Jetzt VitaGLP Sonderrabatt sichern
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</div>
+
 <script>
 // ── Dynamic H1 ──
 const H1 = {
   // H1 variants, map ?h1= param to headline + subheadline
   // Format: [h1, sub]
-  vita:        ['Warum VitaGLP alle anderen GLP-1-Supplemente schlägt, <em>wir haben über 20 davon 6 Monate lang getestet.</em>', 'Wir haben außerdem einen Sonderrabatt und eine 30-tägige Risikofreiheit für unsere Leser ausgehandelt. Lesen Sie bis zum Ende.'],
-  vitaglp:     ['Warum VitaGLP alle anderen GLP-1-Supplemente schlägt, <em>wir haben über 20 davon 6 Monate lang getestet.</em>', 'Wir haben außerdem einen Sonderrabatt und eine 30-tägige Risikofreiheit für unsere Leser ausgehandelt. Lesen Sie bis zum Ende.'],
-  h1:          ['Warum VitaGLP alle anderen GLP-1-Supplemente schlägt, <em>wir haben über 20 davon 6 Monate lang getestet.</em>', 'Wir haben außerdem einen Sonderrabatt und eine 30-tägige Risikofreiheit für unsere Leser ausgehandelt. Lesen Sie bis zum Ende.'],
+  vita:        ['Warum VitaGLP alle anderen GLP-1-Supplemente schlägt, <em>wir haben über 20 davon 6 Monate lang getestet.</em>', 'Wir haben außerdem einen Sonderrabatt und eine <span class="lead-highlight">30-tägige Risikofreiheit</span> für unsere Leser ausgehandelt. Lesen Sie bis zum Ende.'],
+  vitaglp:     ['Warum VitaGLP alle anderen GLP-1-Supplemente schlägt, <em>wir haben über 20 davon 6 Monate lang getestet.</em>', 'Wir haben außerdem einen Sonderrabatt und eine <span class="lead-highlight">30-tägige Risikofreiheit</span> für unsere Leser ausgehandelt. Lesen Sie bis zum Ende.'],
+  h1:          ['Warum VitaGLP alle anderen GLP-1-Supplemente schlägt, <em>wir haben über 20 davon 6 Monate lang getestet.</em>', 'Wir haben außerdem einen Sonderrabatt und eine <span class="lead-highlight">30-tägige Risikofreiheit</span> für unsere Leser ausgehandelt. Lesen Sie bis zum Ende.'],
   h2:          ['Wir haben alle in Deutschland erhältlichen GLP-1-Supplemente getestet, nur 3 haben wirklich funktioniert, und VitaGLP kam auf Platz 1.', 'Lesen Sie bis zum Ende, um einen Sonderrabatt und 30 Tage Risikofreiheit freizuschalten.'],
   h3:          ['Unbedingt lesen, bevor Sie VitaGLP kaufen: <em>ist es wirklich den Hype wert?</em>', 'Wir haben außerdem einen Sonderrabatt und 30 Tage Risikofreiheit für unsere Leser ausgehandelt. Lesen Sie bis zum Ende.'],
   h4:          ['Nicht sicher bei VitaGLP? <em>Lesen Sie das. Es beantwortet alle Ihre Fragen.</em>', 'Lesen Sie bis zum Ende, um einen exklusiven Sonderrabatt und 30 Tage Risikofreiheit freizuschalten.'],
   kaufen:      ['Unbedingt lesen, bevor Sie VitaGLP kaufen: <em>ist es wirklich den Hype wert?</em>', 'Wir haben außerdem einen Sonderrabatt und 30 Tage Risikofreiheit für unsere Leser ausgehandelt. Lesen Sie bis zum Ende.'],
   erfahrungen: ['VitaGLP 2026: Was Nutzer wirklich erleben, <em>und was unser 6-monatiger Test ergeben hat.</em>', 'Lesen Sie bis zum Ende, um einen exklusiven Sonderrabatt freizuschalten.'],
   test:        ['Wir haben alle in Deutschland erhältlichen GLP-1-Supplemente getestet, nur 3 haben wirklich funktioniert, und VitaGLP kam auf Platz 1.', 'Lesen Sie bis zum Ende, um einen Sonderrabatt und 30 Tage Risikofreiheit freizuschalten.'],
-  vergleich:   ['VitaGLP vs. alle Alternativen: <em>unser unabhängiger Test 2026 gibt die endgültige Antwort.</em>', 'Wir haben außerdem einen Sonderrabatt und eine 30-tägige Risikofreiheit für unsere Leser ausgehandelt.'],
+  vergleich:   ['VitaGLP vs. alle Alternativen: <em>unser unabhängiger Test 2026 gibt die endgültige Antwort.</em>', 'Wir haben außerdem einen Sonderrabatt und eine <span class="lead-highlight">30-tägige Risikofreiheit</span> für unsere Leser ausgehandelt.'],
   bewertung:   ['Nicht sicher bei VitaGLP? <em>Lesen Sie das. Es beantwortet alle Ihre Fragen.</em>', 'Lesen Sie bis zum Ende, um einen exklusiven Sonderrabatt und 30 Tage Risikofreiheit freizuschalten.'],
-  glp1:        ['Die meisten GLP-1-Supplemente sind Geldverschwendung. <em>Hier sind die drei, die wirklich funktionieren.</em>', 'Wir haben außerdem einen Sonderrabatt und eine 30-tägige Risikofreiheit für unsere Leser ausgehandelt.'],
+  glp1:        ['Die meisten GLP-1-Supplemente sind Geldverschwendung. <em>Hier sind die drei, die wirklich funktionieren.</em>', 'Wir haben außerdem einen Sonderrabatt und eine <span class="lead-highlight">30-tägige Risikofreiheit</span> für unsere Leser ausgehandelt.'],
   abnehmen:    ['GLP-1-Supplemente zum Abnehmen 2026, <em>welches wirklich funktioniert und welche Sie meiden sollten.</em>', 'Lesen Sie bis zum Ende, um einen exklusiven Sonderrabatt freizuschalten.'],
   // legacy single-string keys kept for backward compat:
 };
@@ -1417,6 +1588,31 @@ const H1 = {
   } else {
     if (h1el) h1el.innerHTML = val;
   }
+})();
+
+// ── Sticky footer bar ──
+(function () {
+  const bar = document.getElementById('sticky-bar');
+  const bodyCta = document.getElementById('body-cta');
+  const hideZones = document.querySelectorAll('#body-cta, .card-cta, .final-cta, footer');
+  if (!bar || !bodyCta) return;
+
+  function isVisible(el) {
+    const r = el.getBoundingClientRect();
+    return r.top < window.innerHeight && r.bottom > 0;
+  }
+
+  function updateStickyBar() {
+    const passedBodyCta = bodyCta.getBoundingClientRect().bottom < 0;
+    const zoneVisible = Array.from(hideZones).some(isVisible);
+    const show = passedBodyCta && !zoneVisible;
+    bar.classList.toggle('show', show);
+    bar.setAttribute('aria-hidden', show ? 'false' : 'true');
+  }
+
+  window.addEventListener('scroll', updateStickyBar, { passive: true });
+  window.addEventListener('resize', updateStickyBar, { passive: true });
+  updateStickyBar();
 })();
 
 // ── FAQ ──
